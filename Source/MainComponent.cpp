@@ -18,7 +18,7 @@ MainComponent::MainComponent()
         repaint ();
     };
     context.registerFunction ("sayHello", fn);
-    context.evaluateScript ("sayHello();");
+    context.evaluateScript ("sayHello()");
 }
 
 MainComponent::~MainComponent()

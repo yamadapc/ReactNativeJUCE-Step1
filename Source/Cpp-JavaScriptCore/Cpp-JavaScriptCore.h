@@ -88,11 +88,12 @@ namespace cpp_javascriptcore
             return &*definition;
         }
 
-        static JSValueRef callAsFunction (JSContextRef context, JSObjectRef function, JSObjectRef, size_t, const JSValueRef[], JSValueRef*)
+        static JSValueRef callAsFunction (JSContextRef context, JSObjectRef function, JSObjectRef, size_t, const JSValueRef[], JSValueRef* error)
         {
             void* data = JSObjectGetPrivate (function);
-            std::function<void()>* callable = (std::function<void()>*) data;
+            std::function<void()>* callable = static_cast<std::function<void()>*> (data);
             callable->operator()();
+            error = NULL;
             return JSValueMakeNull (context);
         }
 

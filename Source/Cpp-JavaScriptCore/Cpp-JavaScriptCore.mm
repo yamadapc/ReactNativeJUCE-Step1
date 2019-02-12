@@ -76,7 +76,7 @@ namespace cpp_javascriptcore
         JSValueRef error;
         JSValueRef result = JSEvaluateScript (context, jsScript, NULL, NULL, 1, &error);
 
-        if (error != NULL)
+        if (result == NULL)
         {
             std::cout << "Error while evaluating" << std::endl;
             char* errorStr = new char[100];
