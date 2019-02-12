@@ -12,6 +12,13 @@
 MainComponent::MainComponent()
 {
     setSize (600, 400);
+    auto fn = [&]() {
+        std::cout << "  JavaScript said hello" << std::endl;
+        javascriptSaidHello = true;
+        repaint ();
+    };
+    context.registerFunction ("sayHello", fn);
+    context.evaluateScript ("sayHello();");
 }
 
 MainComponent::~MainComponent()
@@ -21,12 +28,12 @@ MainComponent::~MainComponent()
 //==============================================================================
 void MainComponent::paint (Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
 
     g.setFont (Font (16.0f));
     g.setColour (Colours::white);
-    g.drawText ("Hello World!", getLocalBounds(), Justification::centred, true);
+    if (javascriptSaidHello)
+        g.drawText ("Hello World from JavaScript!", getLocalBounds(), Justification::centred, true);
 }
 
 void MainComponent::resized()

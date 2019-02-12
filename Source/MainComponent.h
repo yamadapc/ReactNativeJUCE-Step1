@@ -9,6 +9,9 @@
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Cpp-JavaScriptCore/Cpp-JavaScriptCore.h"
+
+using namespace cpp_javascriptcore;
 
 //==============================================================================
 /*
@@ -29,7 +32,8 @@ public:
 private:
     //==============================================================================
     // Your private member variables go here...
-
+    CJSContext context;
+    bool javascriptSaidHello = false;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

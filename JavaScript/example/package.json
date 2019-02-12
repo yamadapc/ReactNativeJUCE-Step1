@@ -1,0 +1,23 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "An example of JavaScript inside JUCE",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Tacla Yamada",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-native-juce": "file:../react-native-juce"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "swc": "^1.0.6",
+    "swc-loader": "^0.1.3",
+    "webpack": "^4.29.3"
+  }
+}

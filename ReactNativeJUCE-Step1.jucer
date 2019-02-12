@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="A7AHfl" name="ReactNativeJUCE-Step1" projectType="guiapp"
-              jucerVersion="5.4.2">
+              jucerVersion="5.4.2" cppLanguageStandard="17">
   <MAINGROUP id="p2jRwC" name="ReactNativeJUCE-Step1">
     <GROUP id="{E99C3B51-D19A-D208-BB3A-5D5C316BFB12}" name="Source">
+      <GROUP id="{2126F543-B72A-1054-CF39-C599876519F9}" name="Cpp-JavaScriptCore">
+        <FILE id="lY9wkI" name="Cpp-JavaScriptCore.h" compile="0" resource="0"
+              file="Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.h"/>
+        <FILE id="p90Y7m" name="Cpp-JavaScriptCore.mm" compile="1" resource="0"
+              file="Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.mm"/>
+      </GROUP>
       <FILE id="gKSnew" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="Lc5ziF" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
