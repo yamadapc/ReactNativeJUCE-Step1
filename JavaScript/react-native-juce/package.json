@@ -1,0 +1,11 @@
+{
+  "name": "react-native-juce",
+  "version": "1.0.0",
+  "description": "This is an implementation of the react-native API which uses JUCE under the hood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Tacla Yamada",
+  "license": "MIT"
+}
