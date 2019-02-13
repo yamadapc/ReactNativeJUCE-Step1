@@ -25,7 +25,9 @@ MainComponent::MainComponent ()
         repaint ();
     };
     context.registerFunction ("sayHello", fn);
-    context.evaluateScript ("sayHello('world')");
+    File bundleFile = File (
+        "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
+    context.evaluateScript (bundleFile.loadFileAsString ().toStdString ());
 }
 
 MainComponent::~MainComponent ()
