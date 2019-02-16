@@ -11,6 +11,8 @@
         <FILE id="koVuso" name="CJSFunction.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSFunction.h"/>
         <FILE id="F2LeMP" name="CJSUtil.cpp" compile="1" resource="0" file="Source/Cpp-JavaScriptCore/CJSUtil.cpp"/>
         <FILE id="PaGxFj" name="CJSUtil.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSUtil.h"/>
+        <FILE id="Jsiz9f" name="CJSValue.cpp" compile="1" resource="0" file="Source/Cpp-JavaScriptCore/CJSValue.cpp"/>
+        <FILE id="n7KhB0" name="CJSValue.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSValue.h"/>
         <FILE id="KEQxkW" name="Cpp-JavaScriptCore.cpp" compile="1" resource="0"
               file="Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.cpp"/>
         <FILE id="lY9wkI" name="Cpp-JavaScriptCore.h" compile="0" resource="0"
