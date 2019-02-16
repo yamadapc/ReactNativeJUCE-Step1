@@ -12,6 +12,7 @@
 MainComponent::MainComponent ()
 {
     setSize (600, 400);
+
     auto fn = [&](JSValueRef, size_t numArguments, const JSValueRef arguments[]) {
         assert (numArguments == 1);
 
@@ -24,10 +25,13 @@ MainComponent::MainComponent ()
 
         repaint ();
     };
+
     context.registerFunction ("sayHello", fn);
+
     File bundleFile = File (
         "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
     context.evaluateScript (bundleFile.loadFileAsString ().toStdString ());
+
     context.evaluateScript ("sayHello('world')");
 }
 

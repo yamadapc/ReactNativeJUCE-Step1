@@ -32,6 +32,36 @@ JSValueRef callAsFunction<std::function<void(JSObjectRef, size_t, const JSValueR
 }
 
 template <>
+JSValueRef callAsFunction<std::function<void(JSContextRef, JSObjectRef, size_t, const JSValueRef[])>> (
+    JSContextRef context,
+    JSObjectRef function,
+    JSObjectRef thisObject,
+    size_t numArguments,
+    const JSValueRef arguments[],
+    JSValueRef* error)
+{
+    void* data = JSObjectGetPrivate (function);
+    auto* callable = static_cast<std::function<void(JSContextRef, JSObjectRef, size_t, const JSValueRef[])>*> (data);
+    callable->operator() (context, thisObject, numArguments, arguments);
+    return JSValueMakeNull (context);
+}
+
+template <>
+JSValueRef callAsFunction<std::function<JSValueRef (JSContextRef, JSObjectRef, size_t, const JSValueRef[])>> (
+    JSContextRef context,
+    JSObjectRef function,
+    JSObjectRef thisObject,
+    size_t numArguments,
+    const JSValueRef arguments[],
+    JSValueRef* error)
+{
+    void* data = JSObjectGetPrivate (function);
+    auto* callable =
+        static_cast<std::function<JSValueRef (JSContextRef, JSObjectRef, size_t, const JSValueRef[])>*> (data);
+    return callable->operator() (context, thisObject, numArguments, arguments);
+}
+
+template <>
 JSValueRef callAsFunction<std::function<void()>> (JSContextRef context,
                                                   JSObjectRef function,
                                                   JSObjectRef thisObject,

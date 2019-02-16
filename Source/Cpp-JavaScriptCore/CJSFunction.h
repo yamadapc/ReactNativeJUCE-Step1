@@ -34,6 +34,24 @@ JSValueRef callAsFunction<std::function<void(JSObjectRef, size_t, const JSValueR
                                                                                          JSValueRef* error);
 
 template <>
+JSValueRef callAsFunction<std::function<void(JSContextRef, JSObjectRef, size_t, const JSValueRef[])>> (
+    JSContextRef context,
+    JSObjectRef function,
+    JSObjectRef thisObject,
+    size_t numArguments,
+    const JSValueRef arguments[],
+    JSValueRef* error);
+
+template <>
+JSValueRef callAsFunction<std::function<JSValueRef (JSContextRef, JSObjectRef, size_t, const JSValueRef[])>> (
+    JSContextRef context,
+    JSObjectRef function,
+    JSObjectRef thisObject,
+    size_t numArguments,
+    const JSValueRef arguments[],
+    JSValueRef* error);
+
+template <>
 JSValueRef callAsFunction<std::function<void()>> (JSContextRef context,
                                                   JSObjectRef function,
                                                   JSObjectRef thisObject,
