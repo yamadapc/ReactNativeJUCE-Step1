@@ -25,25 +25,10 @@ public:
 
     JSGlobalContextRef getContext ();
 
-    void registerFunction (std::string name,
-                           std::function<JSValueRef (JSObjectRef, size_t, const JSValueRef[])> callback)
+    template <typename Fn> void registerFunction (std::string name, Fn callback)
     {
         auto global = getGlobalObject ();
-        auto jsCallback = CJSFunction (context, name, callback);
-        global.setProperty (name, jsCallback.getValue ());
-    }
-
-    void registerFunction (std::string name, std::function<void(JSObjectRef, size_t, const JSValueRef[])> callback)
-    {
-        auto global = getGlobalObject ();
-        auto jsCallback = CJSFunction (context, name, callback);
-        global.setProperty (name, jsCallback.getValue ());
-    }
-
-    void registerFunction (std::string name, std::function<void()> callback)
-    {
-        auto global = getGlobalObject ();
-        auto jsCallback = CJSFunction (context, name, callback);
+        auto jsCallback = CJSFunction<Fn> (context, name, callback);
         global.setProperty (name, jsCallback.getValue ());
     }
 

@@ -7,6 +7,16 @@
 
 namespace cpp_javascriptcore
 {
+using CbJSArgsReturningJSValue = std::function<JSValueRef (JSObjectRef, size_t, const JSValueRef[])>;
+
+using CbJSArgs = std::function<void(JSObjectRef, size_t, const JSValueRef[])>;
+
+using CbJSArgsReturningJSValueWithContext =
+    std::function<JSValueRef (JSContextRef, JSObjectRef, size_t, const JSValueRef[])>;
+
+using CbJSArgsWithContext = std::function<void(JSContextRef, JSObjectRef, size_t, const JSValueRef[])>;
+
+using CbVoid = std::function<void()>;
 
 template <typename CallFn>
 JSValueRef callAsFunction (JSContextRef context,
@@ -17,47 +27,44 @@ JSValueRef callAsFunction (JSContextRef context,
                            JSValueRef* error);
 
 template <>
-JSValueRef
-callAsFunction<std::function<JSValueRef (JSObjectRef, size_t, const JSValueRef[])>> (JSContextRef context,
-                                                                                     JSObjectRef function,
-                                                                                     JSObjectRef thisObject,
-                                                                                     size_t numArguments,
-                                                                                     const JSValueRef arguments[],
-                                                                                     JSValueRef* error);
+JSValueRef callAsFunction<CbJSArgsReturningJSValue> (JSContextRef context,
+                                                     JSObjectRef function,
+                                                     JSObjectRef thisObject,
+                                                     size_t numArguments,
+                                                     const JSValueRef arguments[],
+                                                     JSValueRef* error);
 
 template <>
-JSValueRef callAsFunction<std::function<void(JSObjectRef, size_t, const JSValueRef[])>> (JSContextRef context,
-                                                                                         JSObjectRef function,
-                                                                                         JSObjectRef thisObject,
-                                                                                         size_t numArguments,
-                                                                                         const JSValueRef arguments[],
-                                                                                         JSValueRef* error);
+JSValueRef callAsFunction<CbJSArgs> (JSContextRef context,
+                                     JSObjectRef function,
+                                     JSObjectRef thisObject,
+                                     size_t numArguments,
+                                     const JSValueRef arguments[],
+                                     JSValueRef* error);
 
 template <>
-JSValueRef callAsFunction<std::function<void(JSContextRef, JSObjectRef, size_t, const JSValueRef[])>> (
-    JSContextRef context,
-    JSObjectRef function,
-    JSObjectRef thisObject,
-    size_t numArguments,
-    const JSValueRef arguments[],
-    JSValueRef* error);
+JSValueRef callAsFunction<CbJSArgsReturningJSValueWithContext> (JSContextRef context,
+                                                                JSObjectRef function,
+                                                                JSObjectRef thisObject,
+                                                                size_t numArguments,
+                                                                const JSValueRef arguments[],
+                                                                JSValueRef* error);
 
 template <>
-JSValueRef callAsFunction<std::function<JSValueRef (JSContextRef, JSObjectRef, size_t, const JSValueRef[])>> (
-    JSContextRef context,
-    JSObjectRef function,
-    JSObjectRef thisObject,
-    size_t numArguments,
-    const JSValueRef arguments[],
-    JSValueRef* error);
+JSValueRef callAsFunction<CbJSArgsWithContext> (JSContextRef context,
+                                                JSObjectRef function,
+                                                JSObjectRef thisObject,
+                                                size_t numArguments,
+                                                const JSValueRef arguments[],
+                                                JSValueRef* error);
 
 template <>
-JSValueRef callAsFunction<std::function<void()>> (JSContextRef context,
-                                                  JSObjectRef function,
-                                                  JSObjectRef thisObject,
-                                                  size_t numArguments,
-                                                  const JSValueRef arguments[],
-                                                  JSValueRef* error);
+JSValueRef callAsFunction<CbVoid> (JSContextRef context,
+                                   JSObjectRef function,
+                                   JSObjectRef thisObject,
+                                   size_t numArguments,
+                                   const JSValueRef arguments[],
+                                   JSValueRef* error);
 
 template <typename Fn> class CJSFunction
 {

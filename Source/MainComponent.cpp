@@ -26,7 +26,7 @@ MainComponent::MainComponent ()
         repaint ();
     };
 
-    context.registerFunction ("sayHello", fn);
+    context.registerFunction<cpp_javascriptcore::CbJSArgs> ("sayHello", fn);
 
     File bundleFile = File (
         "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
