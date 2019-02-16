@@ -6,6 +6,15 @@
 namespace cpp_javascriptcore
 {
 
+struct UndefinedLiteral
+{
+};
+
+struct NullLiteral
+{
+};
+
+
 JSStringRef getJSStringRefFromString (const std::string& str);
 
 }
