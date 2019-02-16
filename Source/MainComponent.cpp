@@ -28,6 +28,7 @@ MainComponent::MainComponent ()
     File bundleFile = File (
         "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
     context.evaluateScript (bundleFile.loadFileAsString ().toStdString ());
+    context.evaluateScript ("sayHello('world')");
 }
 
 MainComponent::~MainComponent ()
