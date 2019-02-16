@@ -29,12 +29,12 @@ CJSValue CJSContext::evaluateScript (std::string script)
         delete[] errorStr;
     }
 
-    return {context, result};
+    return CJSValue (context, result);
 }
 
 CJSObject CJSContext::getGlobalObject ()
 {
-    return {context, JSContextGetGlobalObject (context)};
+    return CJSObject (context, JSContextGetGlobalObject (context));
 }
 
 JSGlobalContextRef CJSContext::getContext ()
