@@ -6,6 +6,9 @@
     <GROUP id="{E99C3B51-D19A-D208-BB3A-5D5C316BFB12}" name="Source">
       <GROUP id="{2126F543-B72A-1054-CF39-C599876519F9}" name="Cpp-JavaScriptCore">
         <FILE id="UGyCxL" name="CJSClass.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSClass.h"/>
+        <FILE id="rdJR1m" name="CJSObject.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSObject.h"/>
+        <FILE id="F2LeMP" name="CJSUtil.cpp" compile="1" resource="0" file="Source/Cpp-JavaScriptCore/CJSUtil.cpp"/>
+        <FILE id="PaGxFj" name="CJSUtil.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSUtil.h"/>
         <FILE id="KEQxkW" name="Cpp-JavaScriptCore.cpp" compile="1" resource="0"
               file="Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.cpp"/>
         <FILE id="lY9wkI" name="Cpp-JavaScriptCore.h" compile="0" resource="0"

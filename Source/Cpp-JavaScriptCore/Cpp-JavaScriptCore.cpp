@@ -2,11 +2,6 @@
 
 namespace cpp_javascriptcore
 {
-JSStringRef getJSStringRefFromString (const std::string& str)
-{
-    return JSStringCreateWithUTF8CString (str.c_str ());
-}
-
 CJSValue::CJSValue (JSContextRef context_, JSValueRef value_) : context (context_), value (value_)
 {
 }

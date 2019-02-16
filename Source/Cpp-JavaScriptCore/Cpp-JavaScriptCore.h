@@ -7,6 +7,7 @@
 #include <string>
 
 #include "CJSClass.h"
+#include "CJSObject.h"
 
 namespace cpp_javascriptcore
 {
@@ -18,51 +19,6 @@ struct NullLiteral
 };
 
 JSStringRef getJSStringRefFromString (const std::string& str);
-
-class CJSObject
-{
-public:
-    CJSObject ()
-    {
-    }
-
-    CJSObject (JSContextRef context_, JSObjectRef object_) : context (context_), object (object_)
-    {
-    }
-
-    CJSObject (JSContextRef context, CJSClass klass, void* data)
-        : CJSObject (context, JSObjectMake (context, klass.getClass (), data))
-    {
-    }
-
-    CJSObject (JSContextRef context, std::string name, JSObjectCallAsFunctionCallback callback)
-        : CJSObject (context, JSObjectMakeFunctionWithCallback (context, getJSStringRefFromString (name), callback))
-    {
-    }
-
-    ~CJSObject ()
-    {
-    }
-
-    void setProperty (std::string propertyName, JSValueRef value)
-    {
-        JSObjectSetProperty (context, object, getJSStringRefFromString (propertyName), value, NULL, NULL);
-    }
-
-    JSValueRef getValue ()
-    {
-        return object;
-    }
-
-    JSObjectRef getObject ()
-    {
-        return object;
-    }
-
-private:
-    JSContextRef context;
-    JSObjectRef object;
-};
 
 template <typename CallFn>
 JSValueRef callAsFunction (JSContextRef context,
