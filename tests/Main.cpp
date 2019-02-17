@@ -1,8 +1,10 @@
 #define CATCH_CONFIG_MAIN
 
+#include <iostream>
+#include <string>
+
 #include "../Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.h"
 #include "catch2/catch.hpp"
-#include <string>
 
 using namespace cpp_javascriptcore;
 
@@ -24,6 +26,31 @@ SCENARIO ("CJSContext")
             JSValueRef expectedValue = JSValueMakeNumber (context.getContext (), 12.0);
 
             REQUIRE (JSValueIsStrictEqual (context.getContext (), resultValue, expectedValue));
+        }
+    }
+
+    WHEN ("::executeScript (script)")
+    {
+        CJSContext context;
+
+        WHEN ("throws an exception")
+        {
+            THEN ("the result is a `Right` representing the error string")
+            {
+                auto result = context.evaluateScript ("throw new Error('error')");
+                REQUIRE (result);
+                REQUIRE (result.right ().unsafeGet () == "Error: error");
+            }
+        }
+
+        WHEN ("returns a value")
+        {
+            THEN ("the result is a `Left` representing the return value")
+            {
+                auto result = context.evaluateScript ("10 + 2");
+                REQUIRE (!result);
+                REQUIRE (result.left ().unsafeGet ().get<double> () == 12.0);
+            }
         }
     }
 }
