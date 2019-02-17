@@ -53,13 +53,15 @@ JSValueRef CJSValue::getValue ()
     return value;
 }
 
-template <> std::string CJSValue::get ()
+template <> Either<std::string, std::string> CJSValue::safeGet ()
 {
-    auto jsStr = JSValueToStringCopy (context, value, nullptr);
+    JSValueRef error;
+    auto jsStr = JSValueToStringCopy (context, value, &error);
 
     if (jsStr == nullptr)
     {
-        return "";
+        CJSValue cerror (context, error);
+        return right (cerror.safeGet<std::string> ().left ().get ("Unknown error"));
     }
 
     std::string str;
@@ -71,7 +73,27 @@ template <> std::string CJSValue::get ()
         str[i] = jsStrPtr[i]; // NOLINT
     }
 
-    return str;
+    return left (std::move (str));
+}
+
+template <> Either<CJSObject, std::string> CJSValue::safeGet ()
+{
+    JSValueRef error;
+    auto jsObject = JSValueToObject (context, value, &error);
+
+    if (jsObject == nullptr)
+    {
+        CJSValue cerror (context, error);
+        return right (cerror.safeGet<std::string> ().left ().get ("Unknown error"));
+    }
+
+    return left (CJSObject (context, jsObject));
+}
+
+template <> std::string CJSValue::get ()
+{
+    auto eitherResult = safeGet<std::string> ();
+    return eitherResult.left ().get ("");
 }
 
 template <> double CJSValue::get ()
@@ -86,8 +108,7 @@ template <> bool CJSValue::get ()
 
 template <> CJSObject CJSValue::get ()
 {
-    auto jsObject = JSValueToObject (context, value, nullptr);
-    return {context, jsObject};
+    return safeGet<CJSObject> ().left ().unsafeGet ();
 }
 
 } // namespace cpp_javascriptcore

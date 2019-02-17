@@ -55,8 +55,79 @@ SCENARIO ("CJSContext")
     }
 }
 
+SCENARIO ("CJSObject")
+{
+    CJSContext context;
+
+    WHEN ("::callAsFunction (this, argCount, arguments)")
+    {
+        WHEN ("there's no context")
+        {
+            WHEN ("the function returns properly")
+            {
+                auto fn = context.evaluateScript ("function hello() { return Math.pow(10, 2); }").left ().unsafeGet ();
+                auto val = context.evaluateScript ("hello()").left ().unsafeGet ();
+
+                REQUIRE (val.get<double> () == 100);
+
+                // REQUIRE (fn.isObject ());
+                // REQUIRE (!fn.safeGet<CJSObject> ());
+
+                THEN ("we get the return value")
+                {
+                    auto result = fn.get<CJSObject> ().callAsFunction (nullptr, 0, nullptr);
+                    REQUIRE (!result);
+                    REQUIRE (result.left ().unsafeGet ().get<double> () == 100);
+                }
+            }
+        }
+    }
+}
+
 SCENARIO ("CJSValue")
 {
+    /* unfortunately `JSValueToStringCopy` won't call `obj.toString`.
+    WHEN ("::safeGet<std::string> ()")
+    {
+        CJSContext context;
+
+        WHEN ("it throws while converting")
+        {
+            auto eitherValue = context.evaluateScript ("{ toString: () => { throw new Error('conversion error') } }");
+
+            eitherValue.rightMap ([](auto error) {
+                std::cout << "Creating object failed: " << error << std::endl;
+                return error;
+            });
+
+            REQUIRE (!eitherValue);
+            auto value = eitherValue.left ().unsafeGet ();
+
+            REQUIRE (value.isObject ());
+            REQUIRE (value.get<CJSObject> ().getProperty ("toString").isObject ());
+            REQUIRE (value.get<CJSObject> ().getProperty ("toString").get<CJSObject> ().isFunction ());
+
+
+            THEN ("we'll get the error as a `Right`")
+            {
+                auto str = value.safeGet<std::string> ();
+
+                str.rightMap ([](auto error) {
+                    std::cout << "Conversion failed: " << error << std::endl;
+                    return right (std::move (error));
+                });
+
+                str.leftMap ([](auto str) {
+                    std::cout << "Conversion worked (it shouldn't): " << str << std::endl;
+                    return left (std::move (str));
+                });
+
+                REQUIRE (str.right ().unsafeGet () == "Error: conversion error");
+            }
+        }
+    }
+    */
+
     WHEN ("::get<std::string> ()")
     {
         JSGlobalContextRef context = JSGlobalContextCreate (nullptr);

@@ -4,4 +4,8 @@ debug: FORCE
 	cd build && cmake --build .
 	./build/tests
 
+xcode: FORCE
+	mkdir -p xcode
+	cd xcode && cmake .. -GXcode
+
 FORCE:

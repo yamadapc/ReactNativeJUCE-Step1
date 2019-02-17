@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JavaScriptCore/JavaScriptCore.h>
+#include <neither/Either.hpp>
 
 #include "CJSClass.h"
 #include "CJSUtil.h"
@@ -8,6 +9,8 @@
 
 namespace cpp_javascriptcore
 {
+
+using namespace neither;
 
 class CJSObject
 {
@@ -46,6 +49,14 @@ public:
         assert (jsValue != nullptr);
         return {context, jsValue};
     }
+
+    bool isFunction ()
+    {
+        return JSObjectIsFunction (context, object);
+    }
+
+    Either<CJSValue, std::string>
+    callAsFunction (JSObjectRef thisObject, size_t argumentCount, const JSValueRef arguments[]);
 
     JSValueRef getValue ()
     {

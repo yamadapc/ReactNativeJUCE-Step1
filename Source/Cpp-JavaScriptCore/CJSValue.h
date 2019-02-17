@@ -1,10 +1,13 @@
 #pragma once
 
 #include <JavaScriptCore/JavaScriptCore.h>
+#include <neither/Either.hpp>
 #include <string>
 
 namespace cpp_javascriptcore
 {
+
+using namespace neither;
 
 class CJSValue
 {
@@ -32,6 +35,7 @@ public:
 
     JSValueRef getValue ();
 
+    template <typename T> Either<T, std::string> safeGet ();
     template <typename T> T get ();
 
 private:
