@@ -165,4 +165,26 @@ SCENARIO ("CJSValue")
 
         JSGlobalContextRelease (context);
     }
+
+    WHEN ("::get<CJSObject> ()")
+    {
+        CJSContext context;
+
+        WHEN ("it's an object")
+        {
+            auto jsObj = JSObjectMake (context.getContext (), nullptr, nullptr);
+            CJSObject obj (context.getContext (), jsObj);
+            std::string sourceStr = "there";
+            JSStringRef jsStr = JSStringCreateWithUTF8CString (sourceStr.c_str ());
+            JSValueRef jsProperty = JSValueMakeString (context.getContext (), jsStr);
+            obj.setProperty ("hello", jsProperty);
+            CJSValue value (context.getContext (), obj.getValue ());
+
+            THEN ("it'll convert")
+            {
+                auto object = value.get<CJSObject> ();
+                REQUIRE (object.getProperty ("hello").get<std::string> () == "there");
+            }
+        }
+    }
 }

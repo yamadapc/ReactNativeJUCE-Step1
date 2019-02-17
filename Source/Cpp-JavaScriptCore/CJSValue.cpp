@@ -1,4 +1,5 @@
 #include "CJSValue.h"
+#include "CJSObject.h"
 
 namespace cpp_javascriptcore
 {
@@ -81,6 +82,12 @@ template <> double CJSValue::get ()
 template <> bool CJSValue::get ()
 {
     return JSValueToBoolean (context, value);
+}
+
+template <> CJSObject CJSValue::get ()
+{
+    auto jsObject = JSValueToObject (context, value, nullptr);
+    return {context, jsObject};
 }
 
 } // namespace cpp_javascriptcore

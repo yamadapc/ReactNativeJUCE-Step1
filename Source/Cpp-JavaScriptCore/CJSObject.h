@@ -2,7 +2,9 @@
 
 #include <JavaScriptCore/JavaScriptCore.h>
 
+#include "CJSClass.h"
 #include "CJSUtil.h"
+#include "CJSValue.h"
 
 namespace cpp_javascriptcore
 {
@@ -35,7 +37,14 @@ public:
     void setProperty (std::string propertyName, JSValueRef value)
     {
         JSObjectSetProperty (
-            context, object, getJSStringRefFromString (propertyName), value, kJSClassAttributeNone, NULL);
+            context, object, getJSStringRefFromString (propertyName), value, kJSClassAttributeNone, nullptr);
+    }
+
+    CJSValue getProperty (std::string propertyName)
+    {
+        auto jsValue = JSObjectGetProperty (context, object, getJSStringRefFromString (propertyName), nullptr);
+        assert (jsValue != nullptr);
+        return {context, jsValue};
     }
 
     JSValueRef getValue ()
