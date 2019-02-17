@@ -83,6 +83,47 @@ SCENARIO ("CJSObject")
             }
         }
     }
+
+    WHEN ("::callMethod (methodName, argCount, arguments)")
+    {
+        WHEN ("the function returns properly")
+        {
+            auto value = context.evaluateScript ("const something = {hello() { return 'world'; }}; something")
+                             .left ()
+                             .unsafeGet ();
+
+            REQUIRE (value.isObject ());
+            REQUIRE (!value.safeGet<CJSObject> ());
+
+            auto obj = value.get<CJSObject> ();
+
+            THEN ("we get the return value")
+            {
+                auto eitherResult = obj.callMethod ("hello", 0, nullptr);
+                REQUIRE (!eitherResult);
+                REQUIRE (eitherResult.left ().unsafeGet ().get<std::string> () == "world");
+            }
+        }
+
+        WHEN ("the function errors")
+        {
+            auto value = context.evaluateScript ("const something = {hello() { throw new Error('error'); }}; something")
+                             .left ()
+                             .unsafeGet ();
+
+            REQUIRE (value.isObject ());
+            REQUIRE (!value.safeGet<CJSObject> ());
+
+            auto obj = value.get<CJSObject> ();
+
+            THEN ("we get an error")
+            {
+                auto eitherResult = obj.callMethod ("hello", 0, nullptr);
+                REQUIRE (eitherResult);
+                REQUIRE (eitherResult.right ().unsafeGet () == "Error: error");
+            }
+        }
+    }
 }
 
 SCENARIO ("CJSValue")

@@ -18,4 +18,13 @@ CJSObject::callAsFunction (JSObjectRef thisObject, size_t argumentCount, const J
     return left (CJSValue (context, result));
 }
 
+Either<CJSValue, std::string>
+CJSObject::callMethod (std::string methodName, size_t argumentCount, const JSValueRef arguments[])
+{
+    auto eitherMethod = getProperty (methodName).safeGet<CJSObject> ();
+    return eitherMethod.leftFlatMap (
+        [&](auto method) { return method.callAsFunction (object, argumentCount, arguments); });
+}
+
+
 } // namespace cpp_javascriptcore

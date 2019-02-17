@@ -37,13 +37,13 @@ public:
     {
     }
 
-    void setProperty (std::string propertyName, JSValueRef value)
+    void setProperty (const std::string& propertyName, JSValueRef value)
     {
         JSObjectSetProperty (
             context, object, getJSStringRefFromString (propertyName), value, kJSClassAttributeNone, nullptr);
     }
 
-    CJSValue getProperty (std::string propertyName)
+    CJSValue getProperty (const std::string& propertyName)
     {
         auto jsValue = JSObjectGetProperty (context, object, getJSStringRefFromString (propertyName), nullptr);
         assert (jsValue != nullptr);
@@ -57,6 +57,9 @@ public:
 
     Either<CJSValue, std::string>
     callAsFunction (JSObjectRef thisObject, size_t argumentCount, const JSValueRef arguments[]);
+
+    Either<CJSValue, std::string>
+    callMethod (std::string methodName, size_t argumentCount, const JSValueRef arguments[]);
 
     JSValueRef getValue ()
     {
