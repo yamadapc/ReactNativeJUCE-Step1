@@ -8,6 +8,24 @@ CJSValue::CJSValue (JSContextRef context_, JSValueRef value_) : context (context
 {
 }
 
+CJSValue::CJSValue (JSContextRef context_, const char* str)
+    : CJSValue (context_, JSValueMakeString (context_, JSStringCreateWithUTF8CString (str)))
+{
+}
+
+CJSValue::CJSValue (JSContextRef context_, const std::string& str)
+    : CJSValue (context_, JSValueMakeString (context_, JSStringCreateWithUTF8CString (str.c_str ())))
+{
+}
+
+CJSValue::CJSValue (JSContextRef context_, double number) : CJSValue (context_, JSValueMakeNumber (context_, number))
+{
+}
+
+CJSValue::CJSValue (JSContextRef context_, bool boolean) : CJSValue (context_, JSValueMakeBoolean (context_, boolean))
+{
+}
+
 CJSValue::CJSType CJSValue::getType ()
 {
     return jsTypeToCJSType (JSValueGetType (context, value));

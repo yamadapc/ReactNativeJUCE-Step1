@@ -322,4 +322,53 @@ SCENARIO ("CJSValue")
             }
         }
     }
+
+    WHEN ("being constructed")
+    {
+        CJSContext context;
+
+        WHEN ("constructed from a string")
+        {
+            THEN ("will be equal to manual construction through the C API")
+            {
+                auto value = CJSValue (context.getContext (), "Hello world");
+                std::string sourceStr = "Hello world";
+                JSStringRef jsStr = JSStringCreateWithUTF8CString (sourceStr.c_str ());
+                JSValueRef expectedValue = JSValueMakeString (context.getContext (), jsStr);
+
+                REQUIRE (value.get<std::string> () == "Hello world");
+
+                {
+                    CJSValue cexpectedValue = {context.getContext (), expectedValue};
+                    REQUIRE (cexpectedValue.get<std::string> () == "Hello world");
+                }
+
+                REQUIRE (JSValueIsStrictEqual (context.getContext (), value.getValue (), expectedValue));
+            }
+        }
+
+        WHEN ("constructed from a double")
+        {
+            THEN ("will be equal to manual construction through the C API")
+            {
+                auto value = CJSValue (context.getContext (), 10.5);
+                double sourceVal = 10.5;
+                JSValueRef expectedValue = JSValueMakeNumber (context.getContext (), sourceVal);
+
+                REQUIRE (JSValueIsStrictEqual (context.getContext (), value.getValue (), expectedValue));
+            }
+        }
+
+        WHEN ("constructed from a boolean")
+        {
+            THEN ("will be equal to manual construction through the C API")
+            {
+                auto value = CJSValue (context.getContext (), true);
+                bool sourceVal = true;
+                JSValueRef expectedValue = JSValueMakeBoolean (context.getContext (), sourceVal);
+
+                REQUIRE (JSValueIsStrictEqual (context.getContext (), value.getValue (), expectedValue));
+            }
+        }
+    }
 }
