@@ -37,6 +37,8 @@ public:
     {
     }
 
+    // TODO Safe variants of `setProperty...`, `getProperty...` methods
+
     void setProperty (const std::string& propertyName, JSValueRef value)
     {
         JSObjectSetProperty (
@@ -48,6 +50,13 @@ public:
         auto jsValue = JSObjectGetProperty (context, object, getJSStringRefFromString (propertyName), nullptr);
         assert (jsValue != nullptr);
         return {context, jsValue};
+    }
+
+    CJSValue getPropertyAtIndex (unsigned propertyIndex)
+    {
+      auto jsValue = JSObjectGetPropertyAtIndex (context, object, propertyIndex, nullptr);
+      assert (jsValue != nullptr);
+      return {context, jsValue};
     }
 
     bool isFunction ()

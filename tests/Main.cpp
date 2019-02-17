@@ -158,6 +158,20 @@ SCENARIO ("CJSValue")
         {
             auto value = context.evaluateScript ("const a = [1, 2, 3]; a").left ().unsafeGet ();
             REQUIRE (value.isArray ());
+            REQUIRE (value.isObject ());
+        }
+
+        THEN ("we can get its elements")
+        {
+            auto value = context.evaluateScript ("const a = [1, 2, 3]; a").left ().unsafeGet ();
+            REQUIRE (value.isArray ());
+            REQUIRE (value.isObject ());
+            auto arr = value.get<CJSObject> ();
+
+            REQUIRE (arr.getProperty ("length").get<double> () == 3);
+            REQUIRE (arr.getPropertyAtIndex (0).get<double> () == 1);
+            REQUIRE (arr.getPropertyAtIndex (1).get<double> () == 2);
+            REQUIRE (arr.getPropertyAtIndex (2).get<double> () == 3);
         }
     }
 
