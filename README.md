@@ -29,7 +29,7 @@ CJSContext context;
 
 context.registerFunction<CbJSArgsWithContext> (
   "sayHello",
-  [](JSContextRef jsContext, JSValueRef /* thisObject */, size_t numArguments, const JSValueRef arguments) {
+  [](JSContextRef jsContext, JSValueRef /* thisObject */, size_t numArguments, const JSValueRef arguments[]) {
     assert (numArguments == 1);
     CJSValue jsStr = {jsContext, arguments[0]};
     assert (jsStr.isString ());
