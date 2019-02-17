@@ -123,6 +123,27 @@ SCENARIO ("CJSObject")
                 REQUIRE (eitherResult.right ().unsafeGet () == "Error: error");
             }
         }
+
+        WHEN ("calling methods with arguments")
+        {
+            auto value = context.evaluateScript ("const something = {hello(n) { return n + 10; }}; something")
+                             .left ()
+                             .unsafeGet ();
+
+            REQUIRE (value.isObject ());
+            REQUIRE (!value.safeGet<CJSObject> ());
+
+            auto obj = value.get<CJSObject> ();
+
+            THEN ("the argument is correctly fowarded to JavaScript")
+            {
+                JSValueRef arguments[1];
+                arguments[0] = JSValueMakeNumber (context.getContext (), 10);
+                auto eitherResult = obj.callMethod ("hello", 1, arguments);
+                REQUIRE (!eitherResult);
+                REQUIRE (eitherResult.left ().unsafeGet ().get<double> () == 20);
+            }
+        }
     }
 }
 
