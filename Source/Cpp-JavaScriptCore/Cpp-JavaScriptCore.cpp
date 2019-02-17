@@ -5,7 +5,7 @@ namespace cpp_javascriptcore
 
 CJSContext::CJSContext ()
 {
-    context = JSGlobalContextCreate (NULL);
+    context = JSGlobalContextCreate (nullptr);
 }
 
 CJSContext::~CJSContext ()
@@ -13,20 +13,16 @@ CJSContext::~CJSContext ()
     JSGlobalContextRelease (context);
 }
 
-CJSValue CJSContext::evaluateScript (std::string script)
+CJSValue CJSContext::evaluateScript (const std::string& script)
 {
     JSStringRef jsScript = getJSStringRefFromString (script);
     JSValueRef error;
-    JSValueRef result = JSEvaluateScript (context, jsScript, NULL, NULL, 1, &error);
+    JSValueRef result = JSEvaluateScript (context, jsScript, nullptr, nullptr, 1, &error);
 
-    if (result == NULL)
+    if (result == nullptr)
     {
-        std::cout << "Error while evaluating" << std::endl;
-        char* errorStr = new char[100];
-        JSStringRef errorJsStr = JSValueToStringCopy (context, error, NULL);
-        JSStringGetUTF8CString (errorJsStr, errorStr, 100);
-        std::cout << errorStr << std::endl;
-        delete[] errorStr;
+        CJSValue cerror (context, error);
+        std::cout << cerror.get<std::string> () << std::endl;
     }
 
     return CJSValue (context, result);

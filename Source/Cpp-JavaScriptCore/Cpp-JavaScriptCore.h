@@ -20,7 +20,7 @@ public:
     CJSContext ();
     ~CJSContext ();
 
-    CJSValue evaluateScript (std::string script);
+    CJSValue evaluateScript (const std::string& script);
     CJSObject getGlobalObject ();
 
     JSGlobalContextRef getContext ();
