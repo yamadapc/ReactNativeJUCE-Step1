@@ -70,8 +70,8 @@ SCENARIO ("CJSObject")
 
                 REQUIRE (val.get<double> () == 100);
 
-                // REQUIRE (fn.isObject ());
-                // REQUIRE (!fn.safeGet<CJSObject> ());
+                REQUIRE (fn.isObject ());
+                REQUIRE (!fn.safeGet<CJSObject> ());
 
                 THEN ("we get the return value")
                 {
