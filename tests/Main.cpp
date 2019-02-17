@@ -19,7 +19,7 @@ SCENARIO ("CJSContext")
 
         THEN ("We can evaluate scripts")
         {
-            auto result = context.evaluateScript ("10 + 2");
+            auto result = context.evaluateScript ("10 + 2").left ().unsafeGet ();
             JSValueRef resultValue = result.getValue ();
             JSValueRef expectedValue = JSValueMakeNumber (context.getContext (), 12.0);
 
@@ -32,7 +32,7 @@ SCENARIO ("CJSValue")
 {
     WHEN ("::get<std::string> ()")
     {
-        JSGlobalContextRef context = JSGlobalContextCreate (NULL);
+        JSGlobalContextRef context = JSGlobalContextCreate (nullptr);
 
         WHEN ("it is not a string")
         {
@@ -87,7 +87,7 @@ SCENARIO ("CJSValue")
 
     WHEN ("::get<double> ()")
     {
-        JSGlobalContextRef context = JSGlobalContextCreate (NULL);
+        JSGlobalContextRef context = JSGlobalContextCreate (nullptr);
 
         WHEN ("it's not a number")
         {
@@ -137,7 +137,7 @@ SCENARIO ("CJSValue")
 
     WHEN ("::get<bool> ()")
     {
-        JSGlobalContextRef context = JSGlobalContextCreate (NULL);
+        JSGlobalContextRef context = JSGlobalContextCreate (nullptr);
 
         WHEN ("it's false")
         {

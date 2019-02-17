@@ -3,6 +3,7 @@
 #include <JavaScriptCore/JavaScriptCore.h>
 #include <functional>
 #include <iostream>
+#include <neither/either.hpp>
 #include <optional>
 #include <string>
 
@@ -14,13 +15,15 @@
 namespace cpp_javascriptcore
 {
 
+using namespace neither;
+
 class CJSContext
 {
 public:
     CJSContext ();
     ~CJSContext ();
 
-    CJSValue evaluateScript (const std::string& script);
+    Either<CJSValue, std::string> evaluateScript (const std::string& script);
     CJSObject getGlobalObject ();
 
     JSGlobalContextRef getContext ();

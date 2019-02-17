@@ -48,7 +48,8 @@ target_link_libraries(tests Catch2::Catch2)
 target_link_libraries(tests "-framework JavaScriptCore")
 add_subdirectory("${CMAKE_SOURCE_DIR}/vendor/Catch2")
 
-target_include_directories(tests INTERFACE "${CMAKE_SOURCE_DIR}/vendor/Catch2/single_include")
+target_include_directories(tests PRIVATE "${CMAKE_SOURCE_DIR}/vendor/Catch2/single_include")
+target_include_directories(tests SYSTEM PRIVATE "${CMAKE_SOURCE_DIR}/external")
 
 set_target_properties(
   tests PROPERTIES

@@ -13,7 +13,7 @@ CJSContext::~CJSContext ()
     JSGlobalContextRelease (context);
 }
 
-CJSValue CJSContext::evaluateScript (const std::string& script)
+Either<CJSValue, std::string> CJSContext::evaluateScript (const std::string& script)
 {
     JSStringRef jsScript = getJSStringRefFromString (script);
     JSValueRef error;
@@ -22,10 +22,10 @@ CJSValue CJSContext::evaluateScript (const std::string& script)
     if (result == nullptr)
     {
         CJSValue cerror (context, error);
-        std::cout << cerror.get<std::string> () << std::endl;
+        return {{cerror.get<std::string> ()}};
     }
 
-    return CJSValue (context, result);
+    return {{CJSValue (context, result)}};
 }
 
 CJSObject CJSContext::getGlobalObject ()
