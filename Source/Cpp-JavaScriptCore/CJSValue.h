@@ -20,7 +20,7 @@ public:
     };
 
     CJSValue (JSContextRef context_, JSValueRef value_);
-    ~CJSValue ();
+    ~CJSValue () = default;
 
     CJSType getType ();
     bool isUndefined ();

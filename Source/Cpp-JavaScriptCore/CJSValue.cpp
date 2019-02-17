@@ -7,10 +7,6 @@ CJSValue::CJSValue (JSContextRef context_, JSValueRef value_) : context (context
 {
 }
 
-CJSValue::~CJSValue ()
-{
-}
-
 CJSValue::CJSType CJSValue::getType ()
 {
     return jsTypeToCJSType (JSValueGetType (context, value));
@@ -58,17 +54,33 @@ JSValueRef CJSValue::getValue ()
 
 template <> std::string CJSValue::get ()
 {
-    auto jsStr = JSValueToStringCopy (context, value, NULL);
+    auto jsStr = JSValueToStringCopy (context, value, nullptr);
 
-    if (jsStr == NULL)
+    if (jsStr == nullptr)
     {
         return "";
     }
 
     std::string str;
-    str.resize (JSStringGetMaximumUTF8CStringSize (jsStr));
-    JSStringGetUTF8CString (jsStr, &str[0], str.size ());
+    str.resize (JSStringGetLength (jsStr));
+    auto* jsStrPtr = JSStringGetCharactersPtr (jsStr);
+
+    for (int i = 0; i < str.size (); i++)
+    {
+        str[i] = jsStrPtr[i]; // NOLINT
+    }
+
     return str;
+}
+
+template <> double CJSValue::get ()
+{
+    return JSValueToNumber (context, value, nullptr);
+}
+
+template <> bool CJSValue::get ()
+{
+    return JSValueToBoolean (context, value);
 }
 
 } // namespace cpp_javascriptcore

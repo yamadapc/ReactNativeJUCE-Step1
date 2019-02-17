@@ -1,3 +1,6 @@
 [submodule "vendor/Catch2"]
 	path = vendor/Catch2
 	url = https://github.com/catchorg/Catch2
+[submodule "vendor/neither"]
+	path = vendor/neither
+	url = https://github.com/LoopPerfect/neither
