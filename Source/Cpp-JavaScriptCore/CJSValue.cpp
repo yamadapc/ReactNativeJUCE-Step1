@@ -56,4 +56,19 @@ JSValueRef CJSValue::getValue ()
     return value;
 }
 
+template <> std::string CJSValue::get ()
+{
+    auto jsStr = JSValueToStringCopy (context, value, NULL);
+
+    if (jsStr == NULL)
+    {
+        return "";
+    }
+
+    std::string str;
+    str.resize (JSStringGetMaximumUTF8CStringSize (jsStr));
+    JSStringGetUTF8CString (jsStr, &str[0], str.size ());
+    return str;
 }
+
+} // namespace cpp_javascriptcore

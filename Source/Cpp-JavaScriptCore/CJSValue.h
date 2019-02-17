@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JavaScriptCore/JavaScriptCore.h>
+#include <string>
 
 namespace cpp_javascriptcore
 {
@@ -30,6 +31,8 @@ public:
     bool isObject ();
 
     JSValueRef getValue ();
+
+    template <typename T> T get ();
 
 private:
     static CJSType jsTypeToCJSType (JSType type);
