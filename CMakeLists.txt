@@ -19,7 +19,7 @@ else()
   set(DO_CLANG_TIDY "${CLANG_TIDY_EXE}" "-checks=*,-clang-analyzer-alpha.*,-fuchsia-default-arguments")
 endif()
 
-project(task3)
+project(cpp_javascript_core)
 
 set (
   SOURCES
