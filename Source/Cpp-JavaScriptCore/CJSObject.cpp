@@ -19,7 +19,7 @@ CJSObject::callAsFunction (JSObjectRef thisObject, size_t argumentCount, const J
 }
 
 Either<CJSValue, std::string>
-CJSObject::callMethod (std::string methodName, size_t argumentCount, const JSValueRef arguments[])
+CJSObject::callMethod (const std::string& methodName, size_t argumentCount, const JSValueRef arguments[])
 {
     auto eitherMethod = getProperty (methodName).safeGet<CJSObject> ();
     return eitherMethod.leftFlatMap (

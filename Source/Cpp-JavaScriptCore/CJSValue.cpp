@@ -61,6 +61,16 @@ bool CJSValue::isObject ()
     return JSValueIsObject (context, value);
 }
 
+bool CJSValue::isDate ()
+{
+    return JSValueIsDate (context, value);
+}
+
+bool CJSValue::isArray ()
+{
+    return JSValueIsArray (context, value);
+}
+
 CJSValue::CJSType CJSValue::jsTypeToCJSType (JSType type)
 {
     return static_cast<CJSValue::CJSType> (type);

@@ -36,6 +36,8 @@ public:
     bool isNumber ();
     bool isString ();
     bool isObject ();
+    bool isDate ();
+    bool isArray ();
 
     JSValueRef getValue ();
 

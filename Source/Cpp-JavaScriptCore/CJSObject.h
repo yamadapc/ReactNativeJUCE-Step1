@@ -59,7 +59,7 @@ public:
     callAsFunction (JSObjectRef thisObject, size_t argumentCount, const JSValueRef arguments[]);
 
     Either<CJSValue, std::string>
-    callMethod (std::string methodName, size_t argumentCount, const JSValueRef arguments[]);
+    callMethod (const std::string& methodName, size_t argumentCount, const JSValueRef arguments[]);
 
     JSValueRef getValue ()
     {

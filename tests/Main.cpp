@@ -149,6 +149,18 @@ SCENARIO ("CJSObject")
 
 SCENARIO ("CJSValue")
 {
+    WHEN ("working with JavaScript arrays")
+    {
+        CJSContext context;
+        JSContextRef jsContext = context.getContext ();
+
+        THEN ("we can detect a value is an array")
+        {
+            auto value = context.evaluateScript ("const a = [1, 2, 3]; a").left ().unsafeGet ();
+            REQUIRE (value.isArray ());
+        }
+    }
+
     WHEN ("checking for a value's type")
     {
         CJSContext context;
