@@ -65,7 +65,8 @@ SCENARIO ("CJSObject")
         {
             WHEN ("the function returns properly")
             {
-                auto fn = context.evaluateScript ("function hello() { return Math.pow(10, 2); }").left ().unsafeGet ();
+                auto fn =
+                    context.evaluateScript ("function hello() { return Math.pow(10, 2); }; hello").left ().unsafeGet ();
                 auto val = context.evaluateScript ("hello()").left ().unsafeGet ();
 
                 REQUIRE (val.get<double> () == 100);
@@ -86,14 +87,51 @@ SCENARIO ("CJSObject")
 
 SCENARIO ("CJSValue")
 {
-    /* unfortunately `JSValueToStringCopy` won't call `obj.toString`.
+    WHEN ("checking for a value's type")
+    {
+        CJSContext context;
+
+        WHEN ("value is a string")
+        {
+            THEN ("it'll return true when checking for strings")
+            {
+                auto value = context.evaluateScript ("'hello world'").left ().unsafeGet ();
+                REQUIRE (value.isString ());
+                REQUIRE (!value.isObject ());
+            }
+        }
+
+        WHEN ("value is an object")
+        {
+            THEN ("it'll return true when checking for objects")
+            {
+                auto value =
+                    context.evaluateScript ("const something = {hello: 'there'}; something").left ().unsafeGet ();
+                REQUIRE (!value.isString ());
+                REQUIRE (value.isObject ());
+            }
+        }
+
+        WHEN ("value is a function")
+        {
+            THEN ("it'll return true when checking for objects")
+            {
+                auto value =
+                    context.evaluateScript ("function something () { return 10 }; something").left ().unsafeGet ();
+                REQUIRE (!value.isString ());
+                REQUIRE (value.isObject ());
+            }
+        }
+    }
+
     WHEN ("::safeGet<std::string> ()")
     {
         CJSContext context;
 
         WHEN ("it throws while converting")
         {
-            auto eitherValue = context.evaluateScript ("{ toString: () => { throw new Error('conversion error') } }");
+            auto eitherValue = context.evaluateScript (
+                "const something = { toString: () => { throw new Error('conversion error') } }; something");
 
             eitherValue.rightMap ([](auto error) {
                 std::cout << "Creating object failed: " << error << std::endl;
@@ -126,7 +164,6 @@ SCENARIO ("CJSValue")
             }
         }
     }
-    */
 
     WHEN ("::get<std::string> ()")
     {
