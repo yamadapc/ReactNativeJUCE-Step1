@@ -34,7 +34,8 @@ public:
 
     void setProperty (std::string propertyName, JSValueRef value)
     {
-        JSObjectSetProperty (context, object, getJSStringRefFromString (propertyName), value, NULL, NULL);
+        JSObjectSetProperty (
+            context, object, getJSStringRefFromString (propertyName), value, kJSClassAttributeNone, NULL);
     }
 
     JSValueRef getValue ()

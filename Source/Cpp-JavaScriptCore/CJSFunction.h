@@ -69,7 +69,7 @@ JSValueRef callAsFunction<CbVoid> (JSContextRef context,
 template <typename Fn> class CJSFunction
 {
 public:
-    CJSFunction (JSContextRef context_, std::string name, Fn& callback)
+    CJSFunction (JSContextRef context_, std::string, Fn& callback)
         : klass (JSClassCreate (makeFunctionDefinition ())),
           context (context_),
           object (JSObjectMake (context, *klass, NULL)),
