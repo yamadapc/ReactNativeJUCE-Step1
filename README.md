@@ -17,10 +17,14 @@ auto callback = context.registerFunction (
   "sayHello",
   [](JSContextRef jsContext, JSValueRef /* functionObject */, JSValueRef /* thisObject */, size_t numArguments, const JSValueRef arguments[], JSValueRef* /* error */) {
     assert (numArguments == 1);
+
     CJSValue jsStr = {jsContext, arguments[0]};
     assert (jsStr.isString ());
+
     auto str = jsStr.get<std::string> ();
     std::cout << "JavaScript said: " << str << std::endl;
+
+    return JSValueMakeNull (jsContext);
   }
 );
 

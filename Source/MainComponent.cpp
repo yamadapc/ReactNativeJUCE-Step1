@@ -13,7 +13,12 @@ MainComponent::MainComponent ()
 {
     setSize (600, 400);
 
-    auto fn = [&](JSContextRef jsContext, JSValueRef, size_t numArguments, const JSValueRef arguments[]) {
+    auto fn = [&](JSContextRef jsContext,
+                  JSValueRef,
+                  JSValueRef,
+                  size_t numArguments,
+                  const JSValueRef arguments[],
+                  JSValueRef*) {
         assert (numArguments == 1);
 
         CJSValue jsStr = {jsContext, arguments[0]};
@@ -29,9 +34,10 @@ MainComponent::MainComponent ()
         javascriptSaidHello = true;
 
         repaint ();
-    };
 
-    context.registerFunction<cpp_javascriptcore::CbJSArgsWithContext> ("sayHello", fn);
+        return JSValueMakeNull (jsContext);
+    };
+    auto callback = context.registerFunction ("sayHello", fn);
 
     File bundleFile = File (
         "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
