@@ -3,6 +3,8 @@ hood.
 
 - - -
 
+[![Build Status](https://travis-ci.org/yamadapc/ReactNativeJUCE-Step1.svg?branch=master)](https://travis-ci.org/yamadapc/ReactNativeJUCE-Step1)
+
 # cpp_javascriptcore
 **cpp_javascriptcore** is a C++ wrapper around JavaScriptCore's C API.
 
