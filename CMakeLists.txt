@@ -42,7 +42,7 @@ add_executable(
 
   "${SOURCES}"
 
-  "${CMAKE_SOURCE_DIR}/Tests/Main.cpp"
+  "${CMAKE_SOURCE_DIR}/tests/Main.cpp"
 )
 
 target_link_libraries(tests Catch2::Catch2)
