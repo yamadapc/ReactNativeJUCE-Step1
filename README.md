@@ -8,28 +8,13 @@ hood.
 
 ## Basic Usage
 ### Registering functions
-Functions are passed as `std::function` pointers stored on a object's private
-data, so they may capture, rather than simply be function pointers.
 
-#### Without passing values around
-```cpp
-CJSContext context;
-// There're other type aliases for other lambda signatures (receiving and
-// returning values)
-context.registerFunction<CbVoid> ("sayHello", []() {
-  std::cout << "JavaScript said hello" << std::endl;
-});
-
-context.evaluateScript ("sayHello ()"); // will call the callback
-```
-
-#### Passing values around using `JSValueRef`s
 ```cpp
 CJSContext context;
 
-context.registerFunction<CbJSArgsWithContext> (
+context.registerFunction (
   "sayHello",
-  [](JSContextRef jsContext, JSValueRef /* thisObject */, size_t numArguments, const JSValueRef arguments[]) {
+  [](JSContextRef jsContext, JSValueRef /* functionObject */, JSValueRef /* thisObject */, size_t numArguments, const JSValueRef arguments[], JSValueRef* /* error */) {
     assert (numArguments == 1);
     CJSValue jsStr = {jsContext, arguments[0]};
     assert (jsStr.isString ());
