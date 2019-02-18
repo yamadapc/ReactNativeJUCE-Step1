@@ -3,12 +3,8 @@
 namespace cpp_javascriptcore
 {
 
-CJSFunction::CJSFunction (JSContextRef context_,
-                          const std::string& name,
-                          Callback& callback)
-    : // klass (JSClassCreate (makeFunctionDefinition ())),
-      context (context_),
-      // object (JSObjectMake (context, klass, NULL)),
+CJSFunction::CJSFunction (JSContextRef context_, const std::string& name, Callback& callback)
+    : context (context_),
       object (JSObjectMakeFunctionWithCallback (context, getJSStringRefFromString (name), &runCallback))
 {
     callbackMap[object] = callback;
