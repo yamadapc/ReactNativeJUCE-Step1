@@ -4,6 +4,7 @@
 
 namespace cpp_javascriptcore
 {
+
 class CJSClass
 {
 public:
@@ -23,4 +24,5 @@ public:
 private:
     JSClassRef klass;
 };
+
 } // namespace cpp_javascriptcore
