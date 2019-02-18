@@ -53,6 +53,49 @@ SCENARIO ("CJSContext")
             }
         }
     }
+
+    WHEN ("::registerFunction (fn)")
+    {
+        THEN ("the function is callable from JavaScript")
+        {
+            CJSContext context;
+
+            auto callback = context.registerFunction (
+                "helloCpp",
+                [](JSContextRef jsContext, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
+                    return CJSValue (jsContext, 10.0).getValue ();
+                });
+
+            auto result = context.evaluateScript ("helloCpp() + 4").left ().unsafeGet ();
+            REQUIRE (result.get<double> () == 14.0);
+        }
+
+        THEN ("the function may call into the this object")
+        {
+            CJSContext context;
+
+            auto callback = context.registerFunction (
+                "helloCpp",
+                [](JSContextRef jsContext,
+                   JSObjectRef,
+                   JSObjectRef jsThisObject,
+                   size_t,
+                   const JSValueRef[],
+                   JSValueRef*) {
+                    auto thisObject = CJSObject (jsContext, jsThisObject);
+                    auto value = thisObject.getProperty ("something");
+                    return CJSValue (jsContext, value.get<double> ()).getValue ();
+                });
+
+            auto result = context.evaluateScript ("helloCpp.call({something: 10})");
+            result.rightMap ([](auto error) {
+                std::cout << error << std::endl;
+                return error;
+            });
+            REQUIRE (!result);
+            REQUIRE (result.left ().unsafeGet ().get<double> () == 10.0);
+        }
+    }
 }
 
 SCENARIO ("CJSObject")

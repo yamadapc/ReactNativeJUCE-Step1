@@ -28,11 +28,12 @@ public:
 
     JSGlobalContextRef getContext ();
 
-    template <typename Fn> void registerFunction (std::string name, Fn callback)
+    CJSFunction registerFunction (std::string name, CJSFunction::Callback callback)
     {
         auto global = getGlobalObject ();
-        auto jsCallback = CJSFunction<Fn> (context, name, callback);
+        auto jsCallback = CJSFunction (context, name, callback);
         global.setProperty (name, jsCallback.getValue ());
+        return jsCallback;
     }
 
 private:

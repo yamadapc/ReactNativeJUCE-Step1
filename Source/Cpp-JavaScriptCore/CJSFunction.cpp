@@ -3,72 +3,39 @@
 namespace cpp_javascriptcore
 {
 
-template <>
-JSValueRef callAsFunction<CbJSArgsReturningJSValue> (JSContextRef context,
-                                                     JSObjectRef function,
-                                                     JSObjectRef thisObject,
-                                                     size_t numArguments,
-                                                     const JSValueRef arguments[],
-                                                     JSValueRef* error)
+CJSFunction::CJSFunction (JSContextRef context_,
+                          const std::string& name,
+                          Callback& callback)
+    : // klass (JSClassCreate (makeFunctionDefinition ())),
+      context (context_),
+      // object (JSObjectMake (context, klass, NULL)),
+      object (JSObjectMakeFunctionWithCallback (context, getJSStringRefFromString (name), &runCallback))
 {
-    void* data = JSObjectGetPrivate (function);
-    auto* callable = static_cast<CbJSArgsReturningJSValue*> (data);
-    return callable->operator() (thisObject, numArguments, arguments);
+    callbackMap[object] = callback;
 }
 
-template <>
-JSValueRef callAsFunction<CbJSArgs> (JSContextRef context,
+CJSFunction::~CJSFunction ()
+{
+    callbackMap.erase (object);
+}
+
+JSValueRef CJSFunction::runCallback (JSContextRef context,
                                      JSObjectRef function,
                                      JSObjectRef thisObject,
                                      size_t numArguments,
                                      const JSValueRef arguments[],
                                      JSValueRef* error)
 {
-    void* data = JSObjectGetPrivate (function);
-    auto* callable = static_cast<CbJSArgs*> (data);
-    callable->operator() (thisObject, numArguments, arguments);
-    return JSValueMakeNull (context);
+    auto maybeCallback = callbackMap.find (function);
+
+    if (maybeCallback == callbackMap.end ())
+    {
+        return JSValueMakeNull (context);
+    }
+
+    return maybeCallback->second (context, function, thisObject, numArguments, arguments, error);
 }
 
-template <>
-JSValueRef callAsFunction<CbJSArgsReturningJSValueWithContext> (JSContextRef context,
-                                                                JSObjectRef function,
-                                                                JSObjectRef thisObject,
-                                                                size_t numArguments,
-                                                                const JSValueRef arguments[],
-                                                                JSValueRef* error)
-{
-    void* data = JSObjectGetPrivate (function);
-    auto* callable = static_cast<CbJSArgsReturningJSValueWithContext*> (data);
-    return callable->operator() (context, thisObject, numArguments, arguments);
-}
-
-template <>
-JSValueRef callAsFunction<CbJSArgsWithContext> (JSContextRef context,
-                                                JSObjectRef function,
-                                                JSObjectRef thisObject,
-                                                size_t numArguments,
-                                                const JSValueRef arguments[],
-                                                JSValueRef* error)
-{
-    void* data = JSObjectGetPrivate (function);
-    auto* callable = static_cast<CbJSArgsWithContext*> (data);
-    callable->operator() (context, thisObject, numArguments, arguments);
-    return JSValueMakeNull (context);
-}
-
-template <>
-JSValueRef callAsFunction<CbVoid> (JSContextRef context,
-                                   JSObjectRef function,
-                                   JSObjectRef thisObject,
-                                   size_t numArguments,
-                                   const JSValueRef arguments[],
-                                   JSValueRef* error)
-{
-    void* data = JSObjectGetPrivate (function);
-    auto* callable = static_cast<CbVoid*> (data);
-    callable->operator() ();
-    return JSValueMakeNull (context);
-}
+std::unordered_map<JSObjectRef, CJSFunction::Callback> CJSFunction::callbackMap;
 
 } // namespace cpp_javascriptcore

@@ -10,6 +10,7 @@ public:
     CJSClass (JSClassRef klass_) : klass (klass_)
     {
     }
+
     ~CJSClass ()
     {
     }
