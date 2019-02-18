@@ -11,8 +11,9 @@ hood.
 
 ```cpp
 CJSContext context;
-
-context.registerFunction (
+// The callback is registered onto a map and deregistered on destruction.
+// You need to keep `callback` around for as long as you want it to be available to JavaScript.
+auto callback = context.registerFunction (
   "sayHello",
   [](JSContextRef jsContext, JSValueRef /* functionObject */, JSValueRef /* thisObject */, size_t numArguments, const JSValueRef arguments[], JSValueRef* /* error */) {
     assert (numArguments == 1);
