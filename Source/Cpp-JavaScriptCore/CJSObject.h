@@ -54,9 +54,19 @@ public:
 
     CJSValue getPropertyAtIndex (unsigned propertyIndex)
     {
-      auto jsValue = JSObjectGetPropertyAtIndex (context, object, propertyIndex, nullptr);
-      assert (jsValue != nullptr);
-      return {context, jsValue};
+        auto jsValue = JSObjectGetPropertyAtIndex (context, object, propertyIndex, nullptr);
+        assert (jsValue != nullptr);
+        return {context, jsValue};
+    }
+
+    void* getPrivate ()
+    {
+        return JSObjectGetPrivate (object);
+    }
+
+    bool setPrivate (void* data)
+    {
+        return JSObjectSetPrivate (object, data);
     }
 
     bool isFunction ()
