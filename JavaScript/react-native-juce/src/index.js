@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 
-export function View() {
-  return this.props.children;
+export function View(props) {
+  return props.children;
+}
+
+export function Text(props) {
+  return props.children;
 }
 
 export const ComponentRegistry = {
