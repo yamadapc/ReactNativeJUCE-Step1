@@ -1,6 +1,8 @@
 #pragma once
 
 #include <JavaScriptCore/JavaScriptCore.h>
+#include <functional>
+#include <unordered_map>
 
 namespace cpp_javascriptcore
 {

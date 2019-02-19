@@ -567,3 +567,68 @@ sample.formatHello('something');
         }
     }
 }
+
+SCENARIO ("CJSConstructor")
+{
+    WHEN ("Trying to register classes with custom constructors")
+    {
+        CJSContext context;
+        JSContextRef jsContext = context.getContext ();
+
+        THEN ("CJSConstructor allows lambda constructor functions")
+        {
+            class Sample
+            {
+            public:
+                Sample ()
+                {
+                }
+
+                ~Sample () = default;
+
+                std::string formatHello (std::string name)
+                {
+                    return "Hello there, " + name;
+                }
+            };
+
+            auto definition = kJSClassDefinitionEmpty;
+            definition.className = "Sample";
+            auto classRef = JSClassCreate (&definition);
+            CJSConstructor::Constructor constructorFn =
+                [&](JSContextRef localJsContext, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
+                    auto* sample = new Sample ();
+                    return JSObjectMake (localJsContext, classRef, (void*)sample);
+                };
+            auto constructor = CJSConstructor (jsContext, classRef, constructorFn);
+            auto jsConstructor = constructor.getConstructor ();
+            auto jsPrototype = JSValueToObject (jsContext, JSObjectGetPrototype (jsContext, jsConstructor), nullptr);
+            auto prototype = CJSObject (jsContext, jsPrototype);
+            CJSFunction::Callback formatHello = [](JSContextRef localJsContext,
+                                                   JSObjectRef,
+                                                   JSObjectRef jsThisValue,
+                                                   size_t argumentCount,
+                                                   const JSValueRef arguments[],
+                                                   JSValueRef*) {
+                assert (argumentCount == 1);
+                auto jsInputStr = arguments[0];
+                auto inputStr = CJSValue (localJsContext, jsInputStr).get<std::string> ();
+                auto thisValue = CJSObject (localJsContext, jsThisValue);
+                void* privateData = thisValue.getPrivate ();
+                auto* sample = (Sample*)privateData;
+                return CJSValue (localJsContext, sample->formatHello (inputStr)).getValue ();
+            };
+            auto jsFormatHello = CJSFunction (jsContext, "formatHello", formatHello);
+            prototype.setProperty ("formatHello", jsFormatHello.getValue ());
+            context.getGlobalObject ().setProperty ("Sample", jsConstructor);
+
+            auto eitherResult = context.evaluateScript (R"(
+const sample = new Sample();
+sample.formatHello('something');
+)");
+            REQUIRE (!eitherResult);
+            auto result = eitherResult.left ().unsafeGet ();
+            REQUIRE (result.get<std::string> () == "Hello there, something");
+        }
+    }
+}

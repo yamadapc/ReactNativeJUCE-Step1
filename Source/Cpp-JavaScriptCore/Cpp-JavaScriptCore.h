@@ -8,6 +8,7 @@
 #include <string>
 
 #include "CJSClass.h"
+#include "CJSConstructor.h"
 #include "CJSFunction.h"
 #include "CJSObject.h"
 #include "CJSValue.h"

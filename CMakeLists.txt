@@ -26,6 +26,8 @@ set (
   "Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.cpp"
   "Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.h"
   "Source/Cpp-JavaScriptCore/CJSClass.h"
+  "Source/Cpp-JavaScriptCore/CJSConstructor.cpp"
+  "Source/Cpp-JavaScriptCore/CJSConstructor.h"
   "Source/Cpp-JavaScriptCore/CJSFunction.cpp"
   "Source/Cpp-JavaScriptCore/CJSFunction.h"
   "Source/Cpp-JavaScriptCore/CJSObject.cpp"
