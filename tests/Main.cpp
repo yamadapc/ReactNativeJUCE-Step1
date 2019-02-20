@@ -638,9 +638,42 @@ SCENARIO ("convertValue(context, value)")
     CJSContext context;
     JSContextRef jsContext = context.getContext ();
 
-    WHEN ("value is a string")
+    WHEN ("value is a char*")
     {
         auto value = convertValue (jsContext, "hello world");
         REQUIRE (value.get<std::string> () == "hello world");
+    }
+
+    WHEN ("value is a string")
+    {
+        std::string str = "hello world";
+        auto value = convertValue (jsContext, str);
+        REQUIRE (value.get<std::string> () == "hello world");
+    }
+
+    WHEN ("value is an int")
+    {
+        auto value = convertValue (jsContext, 10);
+        REQUIRE (value.get<double> () == 10.0);
+    }
+
+    WHEN ("value is a float")
+    {
+        auto value = convertValue (jsContext, 10.0f);
+        REQUIRE (value.get<double> () == 10.0);
+    }
+
+    WHEN ("value is a double")
+    {
+        auto value = convertValue (jsContext, 10.0);
+        REQUIRE (value.get<double> () == 10.0);
+    }
+
+    WHEN ("value is a boolean")
+    {
+        auto value = convertValue (jsContext, true);
+        REQUIRE (value.get<bool> () == true);
+        auto value2 = convertValue (jsContext, false);
+        REQUIRE (value2.get<bool> () == false);
     }
 }

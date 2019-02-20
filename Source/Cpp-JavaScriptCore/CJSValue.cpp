@@ -22,6 +22,14 @@ CJSValue::CJSValue (JSContextRef context_, double number) : CJSValue (context_, 
 {
 }
 
+CJSValue::CJSValue (JSContextRef context_, float number) : CJSValue (context_, JSValueMakeNumber (context_, number))
+{
+}
+
+CJSValue::CJSValue (JSContextRef context_, int number) : CJSValue (context_, JSValueMakeNumber (context_, number))
+{
+}
+
 CJSValue::CJSValue (JSContextRef context_, bool boolean) : CJSValue (context_, JSValueMakeBoolean (context_, boolean))
 {
 }

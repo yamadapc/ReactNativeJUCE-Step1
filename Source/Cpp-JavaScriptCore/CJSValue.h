@@ -26,6 +26,8 @@ public:
     CJSValue (JSContextRef context_, const char* str);
     CJSValue (JSContextRef context_, const std::string& str);
     CJSValue (JSContextRef context_, double number);
+    CJSValue (JSContextRef context_, float number);
+    CJSValue (JSContextRef context_, int number);
     CJSValue (JSContextRef context_, bool boolean);
     ~CJSValue () = default;
 
