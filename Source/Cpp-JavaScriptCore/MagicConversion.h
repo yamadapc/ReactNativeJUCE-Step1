@@ -30,7 +30,7 @@ template <typename Ret> Ret fromJS (JSContextRef context, JSValueRef value)
     return cvalue.get<Ret> ();
 }
 
-template <typename Fn> CJSFunction::Callback makeCallback (JSContextRef context, std::string name, Fn callback)
+template <typename Fn> CJSFunction::Callback makeCallback (Fn callback)
 {
     CJSFunction::Callback jsCallback =
         [](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
