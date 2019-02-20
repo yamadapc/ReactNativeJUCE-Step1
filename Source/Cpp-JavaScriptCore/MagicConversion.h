@@ -33,8 +33,8 @@ template <typename Ret> Ret fromJS (JSContextRef context, JSValueRef value)
 template <typename Fn> CJSFunction makeFunction (JSContextRef context, std::string name, Fn callback)
 {
     auto fn = CJSFunction (
-        context, name, [&](JSContextRef, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
-            return JSValueMakeNull (context);
+        context, name, [](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
+            return JSValueMakeNull (lcontext);
         });
     return fn;
 }
