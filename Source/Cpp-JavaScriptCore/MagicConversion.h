@@ -30,13 +30,13 @@ template <typename Ret> Ret fromJS (JSContextRef context, JSValueRef value)
     return cvalue.get<Ret> ();
 }
 
-template <typename Fn> CJSFunction makeFunction (JSContextRef context, std::string name, Fn callback)
+template <typename Fn> CJSFunction::Callback makeCallback (JSContextRef context, std::string name, Fn callback)
 {
-    auto fn = CJSFunction (
-        context, name, [](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
+    CJSFunction::Callback jsCallback =
+        [](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
             return JSValueMakeNull (lcontext);
-        });
-    return fn;
+        };
+    return jsCallback;
 }
 
 } // namespace cpp_javascriptcore

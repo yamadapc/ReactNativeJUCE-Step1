@@ -99,7 +99,8 @@ SCENARIO ("CJSContext")
         {
             CJSContext context;
 
-            auto callback = context.registerFunction ("helloCpp", [](double x, double y) { return x + y; });
+            auto callback =
+                context.registerFunction ("helloCpp", makeCallback ([](double x, double y) { return x + y; }));
             auto result = context.evaluateScript ("helloCpp(10, 20)");
             result.rightMap ([](auto error) {
                 std::cout << error << std::endl;
