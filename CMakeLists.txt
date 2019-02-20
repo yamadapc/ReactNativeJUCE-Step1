@@ -55,6 +55,7 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/vendor/Catch2")
 
 target_include_directories(tests PRIVATE "${CMAKE_SOURCE_DIR}/vendor/Catch2/single_include")
 target_include_directories(tests SYSTEM PRIVATE "${CMAKE_SOURCE_DIR}/external")
+target_include_directories(tests SYSTEM PRIVATE "/usr/local/include")
 
 set_target_properties(
   tests PROPERTIES

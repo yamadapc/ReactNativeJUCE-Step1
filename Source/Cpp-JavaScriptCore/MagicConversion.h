@@ -3,6 +3,8 @@
 #include "CJSFunction.h"
 #include "CJSValue.h"
 #include <JavaScriptCore/JavaScriptCore.h>
+#include <boost/callable_traits.hpp>
+#include <tuple>
 #include <vector>
 
 namespace cpp_javascriptcore
@@ -32,8 +34,12 @@ template <typename Ret> Ret fromJS (JSContextRef context, JSValueRef value)
 
 template <typename Fn> CJSFunction::Callback makeCallback (Fn callback)
 {
+    using ArgTypes = boost::callable_traits::args_t<Fn>;          // std::tuple<...>
+    using ReturnType = boost::callable_traits::return_type_t<Fn>; // return type
+    using Arity = std::tuple_size<ArgTypes>;                      // ::value
+
     CJSFunction::Callback jsCallback =
-        [](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
+        [&](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
             return JSValueMakeNull (lcontext);
         };
     return jsCallback;
