@@ -36,6 +36,8 @@ set (
   "Source/Cpp-JavaScriptCore/CJSUtil.h"
   "Source/Cpp-JavaScriptCore/CJSValue.cpp"
   "Source/Cpp-JavaScriptCore/CJSValue.h"
+  "Source/Cpp-JavaScriptCore/MagicConversion.cpp"
+  "Source/Cpp-JavaScriptCore/MagicConversion.h"
 )
 
 # Tests executable set-up

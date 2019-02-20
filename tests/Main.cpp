@@ -632,3 +632,15 @@ sample.formatHello('something');
         }
     }
 }
+
+SCENARIO ("convertValue(context, value)")
+{
+    CJSContext context;
+    JSContextRef jsContext = context.getContext ();
+
+    WHEN ("value is a string")
+    {
+        auto value = convertValue (jsContext, "hello world");
+        REQUIRE (value.get<std::string> () == "hello world");
+    }
+}

@@ -12,6 +12,7 @@
 #include "CJSFunction.h"
 #include "CJSObject.h"
 #include "CJSValue.h"
+#include "MagicConversion.h"
 
 namespace cpp_javascriptcore
 {
