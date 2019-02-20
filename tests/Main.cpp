@@ -677,3 +677,30 @@ SCENARIO ("convertValue(context, value)")
         REQUIRE (value2.get<bool> () == false);
     }
 }
+
+SCENARIO ("convertValues(context, ...values)")
+{
+    CJSContext context;
+    JSContextRef jsContext = context.getContext ();
+
+    WHEN ("values has no elements")
+    {
+        auto values = convertValues (jsContext);
+        REQUIRE (values.size () == 0);
+    }
+
+    WHEN ("values has one char* element")
+    {
+        auto values = convertValues (jsContext, "hello world");
+        REQUIRE (values.size () == 1);
+        REQUIRE (CJSValue (jsContext, values[0]).get<std::string> () == "hello world");
+    }
+
+    WHEN ("values has one char* element and one double element")
+    {
+        auto values = convertValues (jsContext, "hello world", 10.0);
+        REQUIRE (values.size () == 2);
+        REQUIRE (CJSValue (jsContext, values[0]).get<std::string> () == "hello world");
+        REQUIRE (CJSValue (jsContext, values[1]).get<double> () == 10.0);
+    }
+}
