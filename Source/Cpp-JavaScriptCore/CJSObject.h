@@ -6,6 +6,7 @@
 #include "CJSClass.h"
 #include "CJSUtil.h"
 #include "CJSValue.h"
+#include "MagicConversion.h"
 
 namespace cpp_javascriptcore
 {
@@ -76,6 +77,12 @@ public:
 
     Either<CJSValue, std::string>
     callAsFunction (JSObjectRef thisObject, size_t argumentCount, const JSValueRef arguments[]);
+
+    template <typename... Args> Either<CJSValue, std::string> call (Args... arguments)
+    {
+        auto jsArguments = convertValues (context, arguments...);
+        return callAsFunction (nullptr, jsArguments.size (), jsArguments.data ());
+    }
 
     Either<CJSValue, std::string>
     callMethod (const std::string& methodName, size_t argumentCount, const JSValueRef arguments[]);

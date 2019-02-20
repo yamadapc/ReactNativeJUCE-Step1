@@ -126,6 +126,26 @@ SCENARIO ("CJSObject")
         }
     }
 
+    WHEN ("::call (arguments...)")
+    {
+        WHEN ("the function returns properly")
+        {
+            auto fn =
+                context.evaluateScript ("function pow(n, m) { return Math.pow(n, m); }; pow").left ().unsafeGet ();
+            auto fnObj = fn.get<CJSObject> ();
+
+            REQUIRE (fn.isObject ());
+            REQUIRE (!fn.safeGet<CJSObject> ());
+
+            THEN ("we get the return value")
+            {
+                auto result = fnObj.call (10, 2);
+                REQUIRE (!result);
+                REQUIRE (result.left ().unsafeGet ().get<double> () == 100);
+            }
+        }
+    }
+
     WHEN ("::callMethod (methodName, argCount, arguments)")
     {
         WHEN ("the function returns properly")
