@@ -38,6 +38,14 @@ public:
         return jsCallback;
     }
 
+    template <typename Fn> CJSFunction registerFunction (std::string name, Fn callback)
+    {
+        auto global = getGlobalObject ();
+        auto jsCallback = makeFunction (context, name, callback);
+        global.setProperty (name, jsCallback.getValue ());
+        return jsCallback;
+    }
+
 private:
     JSGlobalContextRef context;
 };

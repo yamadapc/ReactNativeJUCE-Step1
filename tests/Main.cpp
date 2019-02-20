@@ -94,6 +94,20 @@ SCENARIO ("CJSContext")
             REQUIRE (!result);
             REQUIRE (result.left ().unsafeGet ().get<double> () == 10.0);
         }
+
+        THEN ("the function may use C++ types")
+        {
+            CJSContext context;
+
+            auto callback = context.registerFunction ("helloCpp", [](double x, double y) { return x + y; });
+            auto result = context.evaluateScript ("helloCpp(10, 20)");
+            result.rightMap ([](auto error) {
+                std::cout << error << std::endl;
+                return error;
+            });
+            REQUIRE (!result);
+            REQUIRE (result.left ().unsafeGet ().get<double> () == 30.0);
+        }
     }
 }
 

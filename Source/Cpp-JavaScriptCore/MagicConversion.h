@@ -1,5 +1,6 @@
 #pragma once
 
+#include "CJSFunction.h"
 #include "CJSValue.h"
 #include <JavaScriptCore/JavaScriptCore.h>
 #include <vector>
@@ -21,6 +22,21 @@ std::vector<JSValueRef> convertValues (JSContextRef context, Arg value, Args... 
     auto rest = convertValues (context, tail...);
     rest.insert (rest.begin (), ref.getValue ());
     return std::move (rest);
+}
+
+template <typename Ret> Ret fromJS (JSContextRef context, JSValueRef value)
+{
+    auto cvalue = CJSValue (context, value);
+    return cvalue.get<Ret> ();
+}
+
+template <typename Fn> CJSFunction makeFunction (JSContextRef context, std::string name, Fn callback)
+{
+    auto fn = CJSFunction (
+        context, name, [&](JSContextRef, JSObjectRef, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
+            return JSValueMakeNull (context);
+        });
+    return fn;
 }
 
 } // namespace cpp_javascriptcore
