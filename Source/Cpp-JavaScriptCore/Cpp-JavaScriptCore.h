@@ -39,6 +39,13 @@ public:
         return jsCallback;
     }
 
+    template <typename T> CJSConstructor registerClass (const CJSExportBuilder<T>& builder)
+    {
+        auto constructor = builder.makeConstructor (context);
+        getGlobalObject ().setProperty (builder.getName (), constructor.getConstructor ());
+        return constructor;
+    }
+
 private:
     JSGlobalContextRef context;
 };

@@ -860,6 +860,11 @@ SCENARIO ("CJSExportBuilder::method(name, impl)")
             {
                 return 1;
             }
+
+            std::string say (std::string name)
+            {
+                return "Hey " + name;
+            }
         };
 
         THEN ("we'll get a valid JavaScript class that wraps our C++ class")
@@ -871,6 +876,49 @@ SCENARIO ("CJSExportBuilder::method(name, impl)")
             REQUIRE (!eitherResult);
             auto result = eitherResult.left ().unsafeGet ();
             REQUIRE (result.get<double> () == 1.0);
+        }
+
+        WHEN ("the class method takes an argument")
+        {
+            auto builder = class_<Hello> ("Hello").method ("say", &Hello::say);
+            auto constructor = builder.makeConstructor (jsContext);
+            context.getGlobalObject ().setProperty ("Hello", constructor.getConstructor ());
+            auto eitherResult = context.evaluateScript ("const hello = new Hello(); hello.say('Pedro')");
+            REQUIRE (!eitherResult);
+            auto result = eitherResult.left ().unsafeGet ();
+            REQUIRE (result.get<std::string> () == "Hey Pedro");
+        }
+    }
+}
+
+SCENARIO ("Using the public API")
+{
+    CJSContext context;
+    JSContextRef jsContext;
+
+    WHEN ("Registering classes with simple methods")
+    {
+        class Hello
+        {
+        public:
+            Hello () = default;
+            ~Hello () = default;
+
+            std::string sayHello (std::string name)
+            {
+                return "Hello there " + name + ", have a good day!";
+            }
+        };
+
+        THEN ("JavaScript interop with classes work")
+        {
+            auto jsHello = class_<Hello> ("Hello").method ("sayHello", &Hello::sayHello);
+            context.registerClass (jsHello);
+            auto result = context.evaluateScript ("const hello = new Hello(); hello.sayHello('world')")
+                              .left ()
+                              .unsafeGet ()
+                              .get<std::string> ();
+            REQUIRE (result == "Hello there world, have a good day!");
         }
     }
 }

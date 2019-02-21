@@ -11,7 +11,7 @@ CJSConstructor::CJSConstructor (JSContextRef context_, JSClassRef klass_, Constr
 
 CJSConstructor::~CJSConstructor ()
 {
-    constructorMap.erase (jsConstructor);
+    // constructorMap.erase (jsConstructor);
 }
 
 JSObjectRef CJSConstructor::runConstructor (JSContextRef context,

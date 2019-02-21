@@ -24,7 +24,7 @@ public:
         return *this;
     }
 
-    CJSConstructor makeConstructor (JSContextRef context)
+    CJSConstructor makeConstructor (JSContextRef context) const
     {
         auto definition = kJSClassDefinitionEmpty;
         definition.className = name.c_str ();
@@ -46,6 +46,11 @@ public:
         }
 
         return constructor;
+    }
+
+    std::string getName () const
+    {
+        return name;
     }
 
 private:
