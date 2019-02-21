@@ -115,12 +115,7 @@ SCENARIO ("CJSContext")
             CJSContext context;
 
             bool called = false;
-            auto f = [&](double x, double y) {
-                std::cout << "x: " << x << std::endl;
-                std::cout << "y: " << y << std::endl;
-                called = x == 10.0 && y == 20.0;
-                std::cout << "called: : " << called << std::endl;
-            };
+            auto f = [&](double x, double y) { called = x == 10.0 && y == 20.0; };
             static_assert (std::is_same<boost::callable_traits::return_type_t<typeof f>, void>{});
             auto callback = context.registerFunction ("helloCpp", makeCallback (f));
             auto result = context.evaluateScript ("helloCpp(10, 20)");
@@ -129,7 +124,6 @@ SCENARIO ("CJSContext")
                 return error;
             });
             REQUIRE (!result);
-            std::cout << "main called: " << called << std::endl;
             REQUIRE (called);
         }
 
@@ -138,19 +132,14 @@ SCENARIO ("CJSContext")
             CJSContext context;
 
             bool called = false;
-            auto callback = context.registerFunction ("helloCpp", makeCallback ([&](double x, double y) {
-                                                          std::cout << "x: " << x << std::endl;
-                                                          std::cout << "y: " << y << std::endl;
-                                                          called = x == 10.0 && y == 20.0;
-                                                          std::cout << "called: : " << called << std::endl;
-                                                      }));
+            auto callback = context.registerFunction (
+                "helloCpp", makeCallback ([&](double x, double y) { called = x == 10.0 && y == 20.0; }));
             auto result = context.evaluateScript ("helloCpp(10, 20)");
             result.rightMap ([](auto error) {
                 std::cout << error << std::endl;
                 return error;
             });
             REQUIRE (!result);
-            std::cout << "main called: " << called << std::endl;
             REQUIRE (called);
         }
     }
@@ -360,12 +349,10 @@ SCENARIO ("CJSValue")
                 auto str = value.safeGet<std::string> ();
 
                 str.rightMap ([](auto error) {
-                    std::cout << "Conversion failed: " << error << std::endl;
                     return right (std::move (error));
                 });
 
                 str.leftMap ([](auto str) {
-                    std::cout << "Conversion worked (it shouldn't): " << str << std::endl;
                     return left (std::move (str));
                 });
 
