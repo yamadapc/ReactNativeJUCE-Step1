@@ -1,0 +1,147 @@
+\hypertarget{namespacecpp__javascriptcore}{}\section{cpp\+\_\+javascriptcore Namespace Reference}
+\label{namespacecpp__javascriptcore}\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_class}{C\+J\+S\+Class}}
+\item 
+class \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_constructor}{C\+J\+S\+Constructor}}
+\item 
+class \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_context}{C\+J\+S\+Context}}
+\item 
+class \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_function}{C\+J\+S\+Function}}
+\item 
+class \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object}{C\+J\+S\+Object}}
+\item 
+class \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}}
+\item 
+struct \mbox{\hyperlink{structcpp__javascriptcore_1_1_null_literal}{Null\+Literal}}
+\item 
+struct \mbox{\hyperlink{structcpp__javascriptcore_1_1_undefined_literal}{Undefined\+Literal}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacecpp__javascriptcore_ade392e059225cd35b14b1b7efb9d5a5b}{Cb\+J\+S\+Args\+Returning\+J\+S\+Value\+With\+Context}} = std\+::function$<$ J\+S\+Value\+Ref(J\+S\+Context\+Ref, J\+S\+Object\+Ref, size\+\_\+t, const J\+S\+Value\+Ref\mbox{[}$\,$\mbox{]})$>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+J\+S\+String\+Ref \mbox{\hyperlink{namespacecpp__javascriptcore_a64c0a5a8f178db673f0eb7704ee78816}{get\+J\+S\+String\+Ref\+From\+String}} (const std\+::string \&str)
+\item 
+std\+::vector$<$ J\+S\+Value\+Ref $>$ \mbox{\hyperlink{namespacecpp__javascriptcore_a5d52cd145305a6c024858e80973867e5}{convert\+Values}} (J\+S\+Context\+Ref context)
+\item 
+{\footnotesize template$<$typename Arg $>$ }\\\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}} \mbox{\hyperlink{namespacecpp__javascriptcore_a2ae1cd64b14aa12f56f503463a3dede6}{convert\+Value}} (J\+S\+Context\+Ref context, Arg value)
+\item 
+{\footnotesize template$<$typename Arg , typename... Args$>$ }\\std\+::vector$<$ J\+S\+Value\+Ref $>$ \mbox{\hyperlink{namespacecpp__javascriptcore_ad53bb2850a23b75e56b6d953fc90b552}{convert\+Values}} (J\+S\+Context\+Ref context, Arg value, Args... tail)
+\item 
+{\footnotesize template$<$typename Ret $>$ }\\Ret \mbox{\hyperlink{namespacecpp__javascriptcore_a63b8017b1766288a57631889bd4d205c}{from\+JS}} (J\+S\+Context\+Ref context, J\+S\+Value\+Ref value)
+\item 
+{\footnotesize template$<$typename F , typename Arg\+Types , std\+::size\+\_\+t N, std\+::size\+\_\+t... Idx$>$ }\\decltype(auto) \mbox{\hyperlink{namespacecpp__javascriptcore_a2c32796cd818b3a75a7dc6f033b4a596}{apply\+Impl}} (F fn, Arg\+Types \&args, std\+::index\+\_\+sequence$<$ Idx... $>$)
+\item 
+{\footnotesize template$<$typename F , typename Arg\+Types , std\+::size\+\_\+t N$>$ }\\decltype(auto) \mbox{\hyperlink{namespacecpp__javascriptcore_ae99580d5a07367766396914230c5cb4a}{apply}} (F fn, Arg\+Types \&args)
+\item 
+{\footnotesize template$<$typename Fn $>$ }\\\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_function_a3cf83c4e33bfeafbe770047bb75556f5}{C\+J\+S\+Function\+::\+Callback}} \mbox{\hyperlink{namespacecpp__javascriptcore_ac75c77a83b4f02ba3e0529799f49a313}{make\+Callback}} (Fn \&\&callback)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacecpp__javascriptcore_ade392e059225cd35b14b1b7efb9d5a5b}\label{namespacecpp__javascriptcore_ade392e059225cd35b14b1b7efb9d5a5b}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!Cb\+J\+S\+Args\+Returning\+J\+S\+Value\+With\+Context@{Cb\+J\+S\+Args\+Returning\+J\+S\+Value\+With\+Context}}
+\index{Cb\+J\+S\+Args\+Returning\+J\+S\+Value\+With\+Context@{Cb\+J\+S\+Args\+Returning\+J\+S\+Value\+With\+Context}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{Cb\+J\+S\+Args\+Returning\+J\+S\+Value\+With\+Context}{CbJSArgsReturningJSValueWithContext}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacecpp__javascriptcore_ade392e059225cd35b14b1b7efb9d5a5b}{cpp\+\_\+javascriptcore\+::\+Cb\+J\+S\+Args\+Returning\+J\+S\+Value\+With\+Context}} = typedef std\+::function$<$J\+S\+Value\+Ref (J\+S\+Context\+Ref, J\+S\+Object\+Ref, size\+\_\+t, const J\+S\+Value\+Ref\mbox{[}$\,$\mbox{]})$>$}
+
+
+
+Definition at line 17 of file C\+J\+S\+Function.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecpp__javascriptcore_ae99580d5a07367766396914230c5cb4a}\label{namespacecpp__javascriptcore_ae99580d5a07367766396914230c5cb4a}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!apply@{apply}}
+\index{apply@{apply}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily template$<$typename F , typename Arg\+Types , std\+::size\+\_\+t N$>$ \\
+decltype(auto) cpp\+\_\+javascriptcore\+::apply (\begin{DoxyParamCaption}\item[{F}]{fn,  }\item[{Arg\+Types \&}]{args }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file Magic\+Conversion.\+h.
+
+\mbox{\Hypertarget{namespacecpp__javascriptcore_a2c32796cd818b3a75a7dc6f033b4a596}\label{namespacecpp__javascriptcore_a2c32796cd818b3a75a7dc6f033b4a596}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!apply\+Impl@{apply\+Impl}}
+\index{apply\+Impl@{apply\+Impl}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{apply\+Impl()}{applyImpl()}}
+{\footnotesize\ttfamily template$<$typename F , typename Arg\+Types , std\+::size\+\_\+t N, std\+::size\+\_\+t... Idx$>$ \\
+decltype(auto) cpp\+\_\+javascriptcore\+::apply\+Impl (\begin{DoxyParamCaption}\item[{F}]{fn,  }\item[{Arg\+Types \&}]{args,  }\item[{std\+::index\+\_\+sequence$<$ Idx... $>$}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file Magic\+Conversion.\+h.
+
+\mbox{\Hypertarget{namespacecpp__javascriptcore_a2ae1cd64b14aa12f56f503463a3dede6}\label{namespacecpp__javascriptcore_a2ae1cd64b14aa12f56f503463a3dede6}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!convert\+Value@{convert\+Value}}
+\index{convert\+Value@{convert\+Value}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{convert\+Value()}{convertValue()}}
+{\footnotesize\ttfamily template$<$typename Arg $>$ \\
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}} cpp\+\_\+javascriptcore\+::convert\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context,  }\item[{Arg}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file Magic\+Conversion.\+h.
+
+\mbox{\Hypertarget{namespacecpp__javascriptcore_a5d52cd145305a6c024858e80973867e5}\label{namespacecpp__javascriptcore_a5d52cd145305a6c024858e80973867e5}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!convert\+Values@{convert\+Values}}
+\index{convert\+Values@{convert\+Values}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{convert\+Values()}{convertValues()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ J\+S\+Value\+Ref $>$ cpp\+\_\+javascriptcore\+::convert\+Values (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file Magic\+Conversion.\+cpp.
+
+\mbox{\Hypertarget{namespacecpp__javascriptcore_ad53bb2850a23b75e56b6d953fc90b552}\label{namespacecpp__javascriptcore_ad53bb2850a23b75e56b6d953fc90b552}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!convert\+Values@{convert\+Values}}
+\index{convert\+Values@{convert\+Values}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{convert\+Values()}{convertValues()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Arg , typename... Args$>$ \\
+std\+::vector$<$J\+S\+Value\+Ref$>$ cpp\+\_\+javascriptcore\+::convert\+Values (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context,  }\item[{Arg}]{value,  }\item[{Args...}]{tail }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file Magic\+Conversion.\+h.
+
+\mbox{\Hypertarget{namespacecpp__javascriptcore_a63b8017b1766288a57631889bd4d205c}\label{namespacecpp__javascriptcore_a63b8017b1766288a57631889bd4d205c}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!from\+JS@{from\+JS}}
+\index{from\+JS@{from\+JS}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{from\+J\+S()}{fromJS()}}
+{\footnotesize\ttfamily template$<$typename Ret $>$ \\
+Ret cpp\+\_\+javascriptcore\+::from\+JS (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context,  }\item[{J\+S\+Value\+Ref}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file Magic\+Conversion.\+h.
+
+\mbox{\Hypertarget{namespacecpp__javascriptcore_a64c0a5a8f178db673f0eb7704ee78816}\label{namespacecpp__javascriptcore_a64c0a5a8f178db673f0eb7704ee78816}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!get\+J\+S\+String\+Ref\+From\+String@{get\+J\+S\+String\+Ref\+From\+String}}
+\index{get\+J\+S\+String\+Ref\+From\+String@{get\+J\+S\+String\+Ref\+From\+String}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{get\+J\+S\+String\+Ref\+From\+String()}{getJSStringRefFromString()}}
+{\footnotesize\ttfamily J\+S\+String\+Ref cpp\+\_\+javascriptcore\+::get\+J\+S\+String\+Ref\+From\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file C\+J\+S\+Util.\+cpp.
+
+\mbox{\Hypertarget{namespacecpp__javascriptcore_ac75c77a83b4f02ba3e0529799f49a313}\label{namespacecpp__javascriptcore_ac75c77a83b4f02ba3e0529799f49a313}} 
+\index{cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}!make\+Callback@{make\+Callback}}
+\index{make\+Callback@{make\+Callback}!cpp\+\_\+javascriptcore@{cpp\+\_\+javascriptcore}}
+\subsubsection{\texorpdfstring{make\+Callback()}{makeCallback()}}
+{\footnotesize\ttfamily template$<$typename Fn $>$ \\
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_function_a3cf83c4e33bfeafbe770047bb75556f5}{C\+J\+S\+Function\+::\+Callback}} cpp\+\_\+javascriptcore\+::make\+Callback (\begin{DoxyParamCaption}\item[{Fn \&\&}]{callback }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file Magic\+Conversion.\+h.
+

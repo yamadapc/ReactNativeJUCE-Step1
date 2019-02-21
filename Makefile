@@ -4,6 +4,9 @@ debug: FORCE
 	cd build && cmake --build .
 	./build/tests
 
+docs: FORCE
+	doxygen ./doxygen.dox
+
 xcode: FORCE
 	mkdir -p xcode
 	cd xcode && cmake .. -GXcode

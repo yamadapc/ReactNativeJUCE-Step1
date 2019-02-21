@@ -1,0 +1,388 @@
+\hypertarget{classcpp__javascriptcore_1_1_c_j_s_value}{}\section{cpp\+\_\+javascriptcore\+:\+:C\+J\+S\+Value Class Reference}
+\label{classcpp__javascriptcore_1_1_c_j_s_value}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+
+
+{\ttfamily \#include $<$C\+J\+S\+Value.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890}{C\+J\+S\+Type}} \{ \newline
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890aec0fc0100c4fc1ce4eea230c3dc10360}{C\+J\+S\+Type\+::\+Undefined}}, 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890abbb93ef26e3c101ff11cdd21cab08a94}{C\+J\+S\+Type\+::\+Null}}, 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a27226c864bac7454a8504f8edb15d95b}{C\+J\+S\+Type\+::\+Boolean}}, 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890ab2ee912b91d69b435159c7c3f6df7f5f}{C\+J\+S\+Type\+::\+Number}}, 
+\newline
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a27118326006d3829667a400ad23d5d98}{C\+J\+S\+Type\+::\+String}}, 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a497031794414a552435f90151ac3b54b}{C\+J\+S\+Type\+::\+Object}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a3b46692e2d6b7b6873f9cb2d6f69ce3f}{C\+J\+S\+Value}} (J\+S\+Context\+Ref context\+\_\+, J\+S\+Value\+Ref value\+\_\+)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a7ebbccc7e59a83f0612da06e01e92b55}{C\+J\+S\+Value}} (J\+S\+Context\+Ref context\+\_\+, const char $\ast$str)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_adf9c49abc4f66e73ee2e6f642a3f6004}{C\+J\+S\+Value}} (J\+S\+Context\+Ref context\+\_\+, const std\+::string \&str)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a3fc1d9f7c0fbbeb4be02f2e63bae3fc2}{C\+J\+S\+Value}} (J\+S\+Context\+Ref context\+\_\+, double number)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a18d9b9e9ac2f2e584d9f47b8322b5d95}{C\+J\+S\+Value}} (J\+S\+Context\+Ref context\+\_\+, float number)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a44a8773b602275ec032ca6e03b91cf39}{C\+J\+S\+Value}} (J\+S\+Context\+Ref context\+\_\+, int number)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a8f22e7073580f5b47f1aec5ad73b4f59}{C\+J\+S\+Value}} (J\+S\+Context\+Ref context\+\_\+, bool boolean)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a07053b33a34d05b062aad46259354ad0}{$\sim$\+C\+J\+S\+Value}} ()=default
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890}{C\+J\+S\+Type}} \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_acc5fe2be7c30be3224a2c865ddce97b5}{get\+Type}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_ae936ece8c2b5be6e532b0d4196ca2463}{is\+Undefined}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_afe087c43191d975a88ae46225c3d3888}{is\+Null}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a9b15cae1f82cc7c5eece21cf31eca533}{is\+Boolean}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_ad0c5a43d868ca52a4cc1971b14865493}{is\+Number}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a6989525a037fc132e1f25cb6eb1801cf}{is\+String}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a93391bae4b1cd3d9a33eedb9cda535bd}{is\+Object}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a4cfeaa2e41c526323ce78604f542a12f}{is\+Date}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_ae8bf26df8482440d666c34eec43bb906}{is\+Array}} ()
+\item 
+J\+S\+Value\+Ref \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a63adc9941be4f4feca788f4991f4de5f}{get\+Value}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\Either$<$ T, std\+::string $>$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_ad8f21a7f144c5cae60f5321886205a53}{safe\+Get}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_ab67e0b43d1680952e0c69d1c7213f38b}{get}} ()
+\item 
+{\footnotesize template$<$$>$ }\\Either$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_aec13dfb32f8c39036aedc068037fc2a6}{safe\+Get}} ()
+\item 
+{\footnotesize template$<$$>$ }\\Either$<$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object}{C\+J\+S\+Object}}, std\+::string $>$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a66dc7d40bba42c44343ba034edfd422f}{safe\+Get}} ()
+\item 
+{\footnotesize template$<$$>$ }\\std\+::string \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a1e6651bf73552b5ecaa4b32bd862d17f}{get}} ()
+\item 
+{\footnotesize template$<$$>$ }\\double \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_ad999763be3b7631e403ae49f34b2f5e8}{get}} ()
+\item 
+{\footnotesize template$<$$>$ }\\bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a7cd68361f0f2f0b25c0c7caa2074fd64}{get}} ()
+\item 
+{\footnotesize template$<$$>$ }\\\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object}{C\+J\+S\+Object}} \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a9d120d1c744e2a77927e0e76671e1b30}{get}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file C\+J\+S\+Value.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890}\label{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Type@{C\+J\+S\+Type}}
+\index{C\+J\+S\+Type@{C\+J\+S\+Type}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Type}{CJSType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890}{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Undefined@{Undefined}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!Undefined@{Undefined}}}\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890aec0fc0100c4fc1ce4eea230c3dc10360}\label{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890aec0fc0100c4fc1ce4eea230c3dc10360}} 
+Undefined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Null@{Null}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!Null@{Null}}}\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890abbb93ef26e3c101ff11cdd21cab08a94}\label{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890abbb93ef26e3c101ff11cdd21cab08a94}} 
+Null&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Boolean@{Boolean}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!Boolean@{Boolean}}}\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a27226c864bac7454a8504f8edb15d95b}\label{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a27226c864bac7454a8504f8edb15d95b}} 
+Boolean&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Number@{Number}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!Number@{Number}}}\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890ab2ee912b91d69b435159c7c3f6df7f5f}\label{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890ab2ee912b91d69b435159c7c3f6df7f5f}} 
+Number&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{String@{String}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!String@{String}}}\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a27118326006d3829667a400ad23d5d98}\label{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a27118326006d3829667a400ad23d5d98}} 
+String&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Object@{Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!Object@{Object}}}\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a497031794414a552435f90151ac3b54b}\label{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890a497031794414a552435f90151ac3b54b}} 
+Object&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 15 of file C\+J\+S\+Value.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a3b46692e2d6b7b6873f9cb2d6f69ce3f}\label{classcpp__javascriptcore_1_1_c_j_s_value_a3b46692e2d6b7b6873f9cb2d6f69ce3f}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Value@{C\+J\+S\+Value}}
+\index{C\+J\+S\+Value@{C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Value()}{CJSValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{J\+S\+Value\+Ref}]{value\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a7ebbccc7e59a83f0612da06e01e92b55}\label{classcpp__javascriptcore_1_1_c_j_s_value_a7ebbccc7e59a83f0612da06e01e92b55}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Value@{C\+J\+S\+Value}}
+\index{C\+J\+S\+Value@{C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Value()}{CJSValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_adf9c49abc4f66e73ee2e6f642a3f6004}\label{classcpp__javascriptcore_1_1_c_j_s_value_adf9c49abc4f66e73ee2e6f642a3f6004}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Value@{C\+J\+S\+Value}}
+\index{C\+J\+S\+Value@{C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Value()}{CJSValue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a3fc1d9f7c0fbbeb4be02f2e63bae3fc2}\label{classcpp__javascriptcore_1_1_c_j_s_value_a3fc1d9f7c0fbbeb4be02f2e63bae3fc2}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Value@{C\+J\+S\+Value}}
+\index{C\+J\+S\+Value@{C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Value()}{CJSValue()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{double}]{number }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a18d9b9e9ac2f2e584d9f47b8322b5d95}\label{classcpp__javascriptcore_1_1_c_j_s_value_a18d9b9e9ac2f2e584d9f47b8322b5d95}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Value@{C\+J\+S\+Value}}
+\index{C\+J\+S\+Value@{C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Value()}{CJSValue()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{float}]{number }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a44a8773b602275ec032ca6e03b91cf39}\label{classcpp__javascriptcore_1_1_c_j_s_value_a44a8773b602275ec032ca6e03b91cf39}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Value@{C\+J\+S\+Value}}
+\index{C\+J\+S\+Value@{C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Value()}{CJSValue()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{int}]{number }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a8f22e7073580f5b47f1aec5ad73b4f59}\label{classcpp__javascriptcore_1_1_c_j_s_value_a8f22e7073580f5b47f1aec5ad73b4f59}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!C\+J\+S\+Value@{C\+J\+S\+Value}}
+\index{C\+J\+S\+Value@{C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Value()}{CJSValue()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::\+C\+J\+S\+Value (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{bool}]{boolean }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a07053b33a34d05b062aad46259354ad0}\label{classcpp__javascriptcore_1_1_c_j_s_value_a07053b33a34d05b062aad46259354ad0}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!````~C\+J\+S\+Value@{$\sim$\+C\+J\+S\+Value}}
+\index{````~C\+J\+S\+Value@{$\sim$\+C\+J\+S\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+J\+S\+Value()}{~CJSValue()}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::$\sim$\+C\+J\+S\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_ab67e0b43d1680952e0c69d1c7213f38b}\label{classcpp__javascriptcore_1_1_c_j_s_value_ab67e0b43d1680952e0c69d1c7213f38b}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!get@{get}}
+\index{get@{get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a1e6651bf73552b5ecaa4b32bd862d17f}\label{classcpp__javascriptcore_1_1_c_j_s_value_a1e6651bf73552b5ecaa4b32bd862d17f}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!get@{get}}
+\index{get@{get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+std\+::string cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 129 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_ad999763be3b7631e403ae49f34b2f5e8}\label{classcpp__javascriptcore_1_1_c_j_s_value_ad999763be3b7631e403ae49f34b2f5e8}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!get@{get}}
+\index{get@{get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+double cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 135 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a7cd68361f0f2f0b25c0c7caa2074fd64}\label{classcpp__javascriptcore_1_1_c_j_s_value_a7cd68361f0f2f0b25c0c7caa2074fd64}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!get@{get}}
+\index{get@{get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 140 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a9d120d1c744e2a77927e0e76671e1b30}\label{classcpp__javascriptcore_1_1_c_j_s_value_a9d120d1c744e2a77927e0e76671e1b30}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!get@{get}}
+\index{get@{get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object}{C\+J\+S\+Object}} cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 145 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_acc5fe2be7c30be3224a2c865ddce97b5}\label{classcpp__javascriptcore_1_1_c_j_s_value_acc5fe2be7c30be3224a2c865ddce97b5}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{get\+Type()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value_a72505affa6537ee81f1d447fab22a890}{C\+J\+S\+Value\+::\+C\+J\+S\+Type}} cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a63adc9941be4f4feca788f4991f4de5f}\label{classcpp__javascriptcore_1_1_c_j_s_value_a63adc9941be4f4feca788f4991f4de5f}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily J\+S\+Value\+Ref cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_ae8bf26df8482440d666c34eec43bb906}\label{classcpp__javascriptcore_1_1_c_j_s_value_ae8bf26df8482440d666c34eec43bb906}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+Array@{is\+Array}}
+\index{is\+Array@{is\+Array}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+Array()}{isArray()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a9b15cae1f82cc7c5eece21cf31eca533}\label{classcpp__javascriptcore_1_1_c_j_s_value_a9b15cae1f82cc7c5eece21cf31eca533}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+Boolean@{is\+Boolean}}
+\index{is\+Boolean@{is\+Boolean}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+Boolean()}{isBoolean()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+Boolean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a4cfeaa2e41c526323ce78604f542a12f}\label{classcpp__javascriptcore_1_1_c_j_s_value_a4cfeaa2e41c526323ce78604f542a12f}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+Date@{is\+Date}}
+\index{is\+Date@{is\+Date}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+Date()}{isDate()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 72 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_afe087c43191d975a88ae46225c3d3888}\label{classcpp__javascriptcore_1_1_c_j_s_value_afe087c43191d975a88ae46225c3d3888}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+Null@{is\+Null}}
+\index{is\+Null@{is\+Null}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+Null()}{isNull()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_ad0c5a43d868ca52a4cc1971b14865493}\label{classcpp__javascriptcore_1_1_c_j_s_value_ad0c5a43d868ca52a4cc1971b14865493}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+Number@{is\+Number}}
+\index{is\+Number@{is\+Number}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+Number()}{isNumber()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a93391bae4b1cd3d9a33eedb9cda535bd}\label{classcpp__javascriptcore_1_1_c_j_s_value_a93391bae4b1cd3d9a33eedb9cda535bd}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+Object@{is\+Object}}
+\index{is\+Object@{is\+Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+Object()}{isObject()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 67 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a6989525a037fc132e1f25cb6eb1801cf}\label{classcpp__javascriptcore_1_1_c_j_s_value_a6989525a037fc132e1f25cb6eb1801cf}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+String@{is\+String}}
+\index{is\+String@{is\+String}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+String()}{isString()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_ae936ece8c2b5be6e532b0d4196ca2463}\label{classcpp__javascriptcore_1_1_c_j_s_value_ae936ece8c2b5be6e532b0d4196ca2463}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!is\+Undefined@{is\+Undefined}}
+\index{is\+Undefined@{is\+Undefined}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{is\+Undefined()}{isUndefined()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::is\+Undefined (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_ad8f21a7f144c5cae60f5321886205a53}\label{classcpp__javascriptcore_1_1_c_j_s_value_ad8f21a7f144c5cae60f5321886205a53}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!safe\+Get@{safe\+Get}}
+\index{safe\+Get@{safe\+Get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{safe\+Get()}{safeGet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Either$<$T, std\+::string$>$ cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::safe\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_aec13dfb32f8c39036aedc068037fc2a6}\label{classcpp__javascriptcore_1_1_c_j_s_value_aec13dfb32f8c39036aedc068037fc2a6}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!safe\+Get@{safe\+Get}}
+\index{safe\+Get@{safe\+Get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{safe\+Get()}{safeGet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+Either$<$std\+::string, std\+::string$>$ cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::safe\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file C\+J\+S\+Value.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_value_a66dc7d40bba42c44343ba034edfd422f}\label{classcpp__javascriptcore_1_1_c_j_s_value_a66dc7d40bba42c44343ba034edfd422f}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}!safe\+Get@{safe\+Get}}
+\index{safe\+Get@{safe\+Get}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value}}
+\subsubsection{\texorpdfstring{safe\+Get()}{safeGet()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+Either$<$\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object}{C\+J\+S\+Object}}, std\+::string$>$ cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Value\+::safe\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 115 of file C\+J\+S\+Value.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Cpp-\/\+Java\+Script\+Core/\mbox{\hyperlink{_c_j_s_value_8h}{C\+J\+S\+Value.\+h}}\item 
+Source/\+Cpp-\/\+Java\+Script\+Core/\mbox{\hyperlink{_c_j_s_value_8cpp}{C\+J\+S\+Value.\+cpp}}\end{DoxyCompactItemize}

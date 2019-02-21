@@ -1,0 +1,30 @@
+\hypertarget{_magic_conversion_8h}{}\section{Source/\+Cpp-\/\+Java\+Script\+Core/\+Magic\+Conversion.h File Reference}
+\label{_magic_conversion_8h}\index{Source/\+Cpp-\/\+Java\+Script\+Core/\+Magic\+Conversion.\+h@{Source/\+Cpp-\/\+Java\+Script\+Core/\+Magic\+Conversion.\+h}}
+{\ttfamily \#include \char`\"{}C\+J\+S\+Function.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+J\+S\+Value.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Java\+Script\+Core/\+Java\+Script\+Core.\+h$>$}\newline
+{\ttfamily \#include $<$boost/callable\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacecpp__javascriptcore}{cpp\+\_\+javascriptcore}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Arg $>$ }\\C\+J\+S\+Value \mbox{\hyperlink{namespacecpp__javascriptcore_a2ae1cd64b14aa12f56f503463a3dede6}{cpp\+\_\+javascriptcore\+::convert\+Value}} (J\+S\+Context\+Ref context, Arg value)
+\item 
+std\+::vector$<$ J\+S\+Value\+Ref $>$ \mbox{\hyperlink{namespacecpp__javascriptcore_a5d52cd145305a6c024858e80973867e5}{cpp\+\_\+javascriptcore\+::convert\+Values}} (J\+S\+Context\+Ref context)
+\item 
+{\footnotesize template$<$typename Arg , typename... Args$>$ }\\std\+::vector$<$ J\+S\+Value\+Ref $>$ \mbox{\hyperlink{namespacecpp__javascriptcore_ad53bb2850a23b75e56b6d953fc90b552}{cpp\+\_\+javascriptcore\+::convert\+Values}} (J\+S\+Context\+Ref context, Arg value, Args... tail)
+\item 
+{\footnotesize template$<$typename Ret $>$ }\\Ret \mbox{\hyperlink{namespacecpp__javascriptcore_a63b8017b1766288a57631889bd4d205c}{cpp\+\_\+javascriptcore\+::from\+JS}} (J\+S\+Context\+Ref context, J\+S\+Value\+Ref value)
+\item 
+{\footnotesize template$<$typename F , typename Arg\+Types , std\+::size\+\_\+t N, std\+::size\+\_\+t... Idx$>$ }\\decltype(auto) \mbox{\hyperlink{namespacecpp__javascriptcore_a2c32796cd818b3a75a7dc6f033b4a596}{cpp\+\_\+javascriptcore\+::apply\+Impl}} (F fn, Arg\+Types \&args, std\+::index\+\_\+sequence$<$ Idx... $>$)
+\item 
+{\footnotesize template$<$typename F , typename Arg\+Types , std\+::size\+\_\+t N$>$ }\\decltype(auto) \mbox{\hyperlink{namespacecpp__javascriptcore_ae99580d5a07367766396914230c5cb4a}{cpp\+\_\+javascriptcore\+::apply}} (F fn, Arg\+Types \&args)
+\item 
+{\footnotesize template$<$typename Fn $>$ }\\C\+J\+S\+Function\+::\+Callback \mbox{\hyperlink{namespacecpp__javascriptcore_ac75c77a83b4f02ba3e0529799f49a313}{cpp\+\_\+javascriptcore\+::make\+Callback}} (Fn \&\&callback)
+\end{DoxyCompactItemize}

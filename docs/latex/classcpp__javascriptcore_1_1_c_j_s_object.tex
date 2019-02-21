@@ -1,0 +1,221 @@
+\hypertarget{classcpp__javascriptcore_1_1_c_j_s_object}{}\section{cpp\+\_\+javascriptcore\+:\+:C\+J\+S\+Object Class Reference}
+\label{classcpp__javascriptcore_1_1_c_j_s_object}\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+
+
+{\ttfamily \#include $<$C\+J\+S\+Object.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a66d2176f271cac5329dcfe1885fffcb5}{C\+J\+S\+Object}} ()
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a82cc772b6e660f7144ffef04a0e80eef}{C\+J\+S\+Object}} (J\+S\+Context\+Ref context\+\_\+, J\+S\+Object\+Ref object\+\_\+)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_aa196c8d35a43a1dc1943272e9ff60eac}{C\+J\+S\+Object}} (J\+S\+Context\+Ref context, \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_class}{C\+J\+S\+Class}} klass, void $\ast$data)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_ac62f1a0512ae5ee95a996b903ee6516a}{C\+J\+S\+Object}} (J\+S\+Context\+Ref context, std\+::string name, J\+S\+Object\+Call\+As\+Function\+Callback callback)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a7c0d8cecca3ccf55a1cf667c9b8b3135}{$\sim$\+C\+J\+S\+Object}} ()
+\item 
+void \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a203fbfb9f14e8b8eb4929b59e9908ede}{set\+Property}} (const std\+::string \&property\+Name, J\+S\+Value\+Ref value)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}} \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_aac86591daacf1f5ec00410c555114269}{get\+Property}} (const std\+::string \&property\+Name)
+\item 
+\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}} \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a192a51aa3a62858363c935c941dc38ab}{get\+Property\+At\+Index}} (unsigned property\+Index)
+\item 
+void $\ast$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a2627185e8dc48a71d43f7a7dbb1e6f12}{get\+Private}} ()
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a34c765e46113b0574dd0e5d2624d81b7}{set\+Private}} (void $\ast$data)
+\item 
+bool \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a490246c8e550d1769a9a1bdc2eb96de4}{is\+Function}} ()
+\item 
+Either$<$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}}, std\+::string $>$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_ad85abe5c623cd8f20c34d109dbcf5edf}{call\+As\+Function}} (J\+S\+Object\+Ref this\+Object, size\+\_\+t argument\+Count, const J\+S\+Value\+Ref arguments\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\Either$<$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}}, std\+::string $>$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a3074d05cfc9a38a6fbd76d4b01b18450}{call}} (Args... arguments)
+\item 
+Either$<$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}}, std\+::string $>$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a83d547bf7f937e8736c037c64d1c43d7}{call\+Method}} (const std\+::string \&method\+Name, size\+\_\+t argument\+Count, const J\+S\+Value\+Ref arguments\mbox{[}$\,$\mbox{]})
+\item 
+J\+S\+Value\+Ref \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a667d9d37ffd019c70dd34a325b7488b2}{get\+Value}} ()
+\item 
+J\+S\+Object\+Ref \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_object_a6f97c34295cb1ee7709f6270fedb1c54}{get\+Object}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file C\+J\+S\+Object.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a66d2176f271cac5329dcfe1885fffcb5}\label{classcpp__javascriptcore_1_1_c_j_s_object_a66d2176f271cac5329dcfe1885fffcb5}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!C\+J\+S\+Object@{C\+J\+S\+Object}}
+\index{C\+J\+S\+Object@{C\+J\+S\+Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Object()}{CJSObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::\+C\+J\+S\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 19 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a82cc772b6e660f7144ffef04a0e80eef}\label{classcpp__javascriptcore_1_1_c_j_s_object_a82cc772b6e660f7144ffef04a0e80eef}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!C\+J\+S\+Object@{C\+J\+S\+Object}}
+\index{C\+J\+S\+Object@{C\+J\+S\+Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Object()}{CJSObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::\+C\+J\+S\+Object (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context\+\_\+,  }\item[{J\+S\+Object\+Ref}]{object\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 23 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_aa196c8d35a43a1dc1943272e9ff60eac}\label{classcpp__javascriptcore_1_1_c_j_s_object_aa196c8d35a43a1dc1943272e9ff60eac}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!C\+J\+S\+Object@{C\+J\+S\+Object}}
+\index{C\+J\+S\+Object@{C\+J\+S\+Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Object()}{CJSObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::\+C\+J\+S\+Object (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context,  }\item[{\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_class}{C\+J\+S\+Class}}}]{klass,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 27 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_ac62f1a0512ae5ee95a996b903ee6516a}\label{classcpp__javascriptcore_1_1_c_j_s_object_ac62f1a0512ae5ee95a996b903ee6516a}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!C\+J\+S\+Object@{C\+J\+S\+Object}}
+\index{C\+J\+S\+Object@{C\+J\+S\+Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{C\+J\+S\+Object()}{CJSObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::\+C\+J\+S\+Object (\begin{DoxyParamCaption}\item[{J\+S\+Context\+Ref}]{context,  }\item[{std\+::string}]{name,  }\item[{J\+S\+Object\+Call\+As\+Function\+Callback}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 32 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a7c0d8cecca3ccf55a1cf667c9b8b3135}\label{classcpp__javascriptcore_1_1_c_j_s_object_a7c0d8cecca3ccf55a1cf667c9b8b3135}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!````~C\+J\+S\+Object@{$\sim$\+C\+J\+S\+Object}}
+\index{````~C\+J\+S\+Object@{$\sim$\+C\+J\+S\+Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+J\+S\+Object()}{~CJSObject()}}
+{\footnotesize\ttfamily cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::$\sim$\+C\+J\+S\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 37 of file C\+J\+S\+Object.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a3074d05cfc9a38a6fbd76d4b01b18450}\label{classcpp__javascriptcore_1_1_c_j_s_object_a3074d05cfc9a38a6fbd76d4b01b18450}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!call@{call}}
+\index{call@{call}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{call()}{call()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+Either$<$\mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}}, std\+::string$>$ cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::call (\begin{DoxyParamCaption}\item[{Args...}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 81 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_ad85abe5c623cd8f20c34d109dbcf5edf}\label{classcpp__javascriptcore_1_1_c_j_s_object_ad85abe5c623cd8f20c34d109dbcf5edf}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!call\+As\+Function@{call\+As\+Function}}
+\index{call\+As\+Function@{call\+As\+Function}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{call\+As\+Function()}{callAsFunction()}}
+{\footnotesize\ttfamily Either$<$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}}, std\+::string $>$ cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::call\+As\+Function (\begin{DoxyParamCaption}\item[{J\+S\+Object\+Ref}]{this\+Object,  }\item[{size\+\_\+t}]{argument\+Count,  }\item[{const J\+S\+Value\+Ref}]{arguments\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file C\+J\+S\+Object.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a83d547bf7f937e8736c037c64d1c43d7}\label{classcpp__javascriptcore_1_1_c_j_s_object_a83d547bf7f937e8736c037c64d1c43d7}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!call\+Method@{call\+Method}}
+\index{call\+Method@{call\+Method}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{call\+Method()}{callMethod()}}
+{\footnotesize\ttfamily Either$<$ \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}}, std\+::string $>$ cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::call\+Method (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{method\+Name,  }\item[{size\+\_\+t}]{argument\+Count,  }\item[{const J\+S\+Value\+Ref}]{arguments\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file C\+J\+S\+Object.\+cpp.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a6f97c34295cb1ee7709f6270fedb1c54}\label{classcpp__javascriptcore_1_1_c_j_s_object_a6f97c34295cb1ee7709f6270fedb1c54}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!get\+Object@{get\+Object}}
+\index{get\+Object@{get\+Object}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{get\+Object()}{getObject()}}
+{\footnotesize\ttfamily J\+S\+Object\+Ref cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::get\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 95 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a2627185e8dc48a71d43f7a7dbb1e6f12}\label{classcpp__javascriptcore_1_1_c_j_s_object_a2627185e8dc48a71d43f7a7dbb1e6f12}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!get\+Private@{get\+Private}}
+\index{get\+Private@{get\+Private}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{get\+Private()}{getPrivate()}}
+{\footnotesize\ttfamily void$\ast$ cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::get\+Private (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 63 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_aac86591daacf1f5ec00410c555114269}\label{classcpp__javascriptcore_1_1_c_j_s_object_aac86591daacf1f5ec00410c555114269}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!get\+Property@{get\+Property}}
+\index{get\+Property@{get\+Property}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{get\+Property()}{getProperty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}} cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::get\+Property (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{property\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 49 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a192a51aa3a62858363c935c941dc38ab}\label{classcpp__javascriptcore_1_1_c_j_s_object_a192a51aa3a62858363c935c941dc38ab}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!get\+Property\+At\+Index@{get\+Property\+At\+Index}}
+\index{get\+Property\+At\+Index@{get\+Property\+At\+Index}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{get\+Property\+At\+Index()}{getPropertyAtIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcpp__javascriptcore_1_1_c_j_s_value}{C\+J\+S\+Value}} cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::get\+Property\+At\+Index (\begin{DoxyParamCaption}\item[{unsigned}]{property\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 56 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a667d9d37ffd019c70dd34a325b7488b2}\label{classcpp__javascriptcore_1_1_c_j_s_object_a667d9d37ffd019c70dd34a325b7488b2}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily J\+S\+Value\+Ref cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 90 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a490246c8e550d1769a9a1bdc2eb96de4}\label{classcpp__javascriptcore_1_1_c_j_s_object_a490246c8e550d1769a9a1bdc2eb96de4}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!is\+Function@{is\+Function}}
+\index{is\+Function@{is\+Function}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{is\+Function()}{isFunction()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::is\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 73 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a34c765e46113b0574dd0e5d2624d81b7}\label{classcpp__javascriptcore_1_1_c_j_s_object_a34c765e46113b0574dd0e5d2624d81b7}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!set\+Private@{set\+Private}}
+\index{set\+Private@{set\+Private}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{set\+Private()}{setPrivate()}}
+{\footnotesize\ttfamily bool cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::set\+Private (\begin{DoxyParamCaption}\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 68 of file C\+J\+S\+Object.\+h.
+
+\mbox{\Hypertarget{classcpp__javascriptcore_1_1_c_j_s_object_a203fbfb9f14e8b8eb4929b59e9908ede}\label{classcpp__javascriptcore_1_1_c_j_s_object_a203fbfb9f14e8b8eb4929b59e9908ede}} 
+\index{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}!set\+Property@{set\+Property}}
+\index{set\+Property@{set\+Property}!cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object@{cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object}}
+\subsubsection{\texorpdfstring{set\+Property()}{setProperty()}}
+{\footnotesize\ttfamily void cpp\+\_\+javascriptcore\+::\+C\+J\+S\+Object\+::set\+Property (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{property\+Name,  }\item[{J\+S\+Value\+Ref}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 43 of file C\+J\+S\+Object.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Cpp-\/\+Java\+Script\+Core/\mbox{\hyperlink{_c_j_s_object_8h}{C\+J\+S\+Object.\+h}}\item 
+Source/\+Cpp-\/\+Java\+Script\+Core/\mbox{\hyperlink{_c_j_s_object_8cpp}{C\+J\+S\+Object.\+cpp}}\end{DoxyCompactItemize}
