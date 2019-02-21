@@ -1,5 +1,6 @@
 #define CATCH_CONFIG_MAIN
 
+#include <boost/callable_traits.hpp>
 #include <iostream>
 #include <string>
 
@@ -348,13 +349,9 @@ SCENARIO ("CJSValue")
             {
                 auto str = value.safeGet<std::string> ();
 
-                str.rightMap ([](auto error) {
-                    return right (std::move (error));
-                });
+                str.rightMap ([](auto error) { return right (std::move (error)); });
 
-                str.leftMap ([](auto str) {
-                    return left (std::move (str));
-                });
+                str.leftMap ([](auto str) { return left (std::move (str)); });
 
                 REQUIRE (str.right ().unsafeGet () == "Error: conversion error");
             }
@@ -768,5 +765,47 @@ SCENARIO ("convertValues(context, ...values)")
         REQUIRE (values.size () == 2);
         REQUIRE (CJSValue (jsContext, values[0]).get<std::string> () == "hello world");
         REQUIRE (CJSValue (jsContext, values[1]).get<double> () == 10.0);
+    }
+}
+
+SCENARIO ("Using boost::callable_traits")
+{
+    WHEN ("Using class methods")
+    {
+        class Hello
+        {
+        public:
+            Hello ()
+            {
+            }
+            ~Hello ()
+            {
+            }
+
+            void say (std::string, double)
+            {
+            }
+
+            double sum (double a, double b)
+            {
+                return a + b;
+            }
+        };
+
+        THEN ("We can get the return type")
+        {
+            using Ret1 = boost::callable_traits::return_type_t<typeof(&Hello::say)>;
+            static_assert (std::is_same<Ret1, void>{});
+            using Ret2 = boost::callable_traits::return_type_t<typeof(&Hello::sum)>;
+            static_assert (std::is_same<Ret2, double>{});
+        }
+
+        THEN ("We can get the argument types")
+        {
+            using Args1 = boost::callable_traits::args_t<typeof(&Hello::say)>;
+            static_assert (std::is_same<Args1, std::tuple<Hello&, std::string, double>>{});
+            using Args2 = boost::callable_traits::args_t<typeof(&Hello::sum)>;
+            static_assert (std::is_same<Args2, std::tuple<Hello&, double, double>>{});
+        }
     }
 }
