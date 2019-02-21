@@ -809,3 +809,36 @@ SCENARIO ("Using boost::callable_traits")
         }
     }
 }
+
+SCENARIO ("CJSExportBuilder::makeConstructor()")
+{
+    CJSContext context;
+    JSContextRef jsContext = context.getContext ();
+
+    WHEN ("The class constructor has no arguments")
+    {
+        class Hello
+        {
+        public:
+            Hello () = default;
+            ~Hello () = default;
+
+            int getOne ()
+            {
+                return 1;
+            }
+        };
+
+        THEN ("we'll get a valid JavaScript class that wraps our C++ class")
+        {
+            auto builder = CJSExportBuilder<Hello> ("Hello");
+            auto constructor = builder.makeConstructor (jsContext);
+            context.getGlobalObject ().setProperty ("Hello", constructor.getConstructor ());
+            auto eitherResult = context.evaluateScript ("const hello = new Hello(); hello");
+            REQUIRE (!eitherResult);
+            auto result = eitherResult.left ().unsafeGet ();
+            auto* hello = (Hello*)result.get<CJSObject> ().getPrivate ();
+            REQUIRE (hello->getOne () == 1);
+        }
+    }
+}

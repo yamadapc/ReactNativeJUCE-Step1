@@ -9,6 +9,7 @@
 
 #include "CJSClass.h"
 #include "CJSConstructor.h"
+#include "CJSExportClass.h"
 #include "CJSFunction.h"
 #include "CJSObject.h"
 #include "CJSValue.h"
