@@ -26,14 +26,19 @@ public:
     }
 };
 
-// Register what the JavaScript class should be named, and what methods to expose on the prototype
-auto jsHello = class_<Hello> ("Hello").method ("sayHello", &Hello::sayHello);
+// Register what the JavaScript class should be named, and what methods to
+// expose on the prototype
+auto jsHello = class_<Hello> ("Hello")
+               .method ("sayHello", &Hello::sayHello);
 
 // Register the class on the global JavaScript scope
 context.registerClass (jsHello);
 
 // Use the class from JavaScript
-auto eitherResult = context.evaluateScript ("const hello = new Hello(); hello.sayHello('world')");
+auto eitherResult = context.evaluateScript (R"(
+    const hello = new Hello();
+    hello.sayHello('world');
+)");
 
 // Unpack the `Either<CJSValue, std::string>` (either result / exception)
 std::string result = eitherResult.left ().unsafeGet ().get<std::string> ();
