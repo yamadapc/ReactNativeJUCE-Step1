@@ -12,7 +12,7 @@ CJSFunction::CJSFunction (JSContextRef context_, const std::string& name, Callba
 
 CJSFunction::~CJSFunction ()
 {
-    callbackMap.erase (object);
+    // callbackMap.erase (object);
 }
 
 JSValueRef CJSFunction::runCallback (JSContextRef context,

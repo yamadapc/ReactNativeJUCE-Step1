@@ -1,5 +1,6 @@
 #pragma once
 
+#include "CJSObject.h"
 #include <JavaScriptCore/JavaScriptCore.h>
 #include <functional>
 #include <unordered_map>
@@ -34,6 +35,12 @@ public:
     JSObjectRef getConstructor ()
     {
         return jsConstructor;
+    }
+
+    CJSObject getPrototype ()
+    {
+        auto jsPrototype = JSValueToObject (context, JSObjectGetPrototype (context, jsConstructor), nullptr);
+        return CJSObject (context, jsPrototype);
     }
 
 private:

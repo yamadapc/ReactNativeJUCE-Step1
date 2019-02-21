@@ -1,6 +1,7 @@
 #include <string>
 
 #include "CJSConstructor.h"
+#include "CJSObject.h"
 #include "MagicConversion.h"
 #include <JavaScriptCore/JavaScriptCore.h>
 
@@ -16,7 +17,12 @@ public:
 
     ~CJSExportBuilder () = default;
 
-    template <typename Fn> CJSExportBuilder& method (std::string name, Fn implementation);
+    template <typename Fn> CJSExportBuilder& method (std::string name, Fn&& methodImpl)
+    {
+        auto jsMethod = makeMethodCallback<T> (methodImpl);
+        prototypeMethods[name] = jsMethod;
+        return *this;
+    }
 
     CJSConstructor makeConstructor (JSContextRef context)
     {
@@ -26,15 +32,25 @@ public:
         CJSConstructor::Constructor constructorFn =
             [=](JSContextRef localJsContext, JSObjectRef, size_t, const JSValueRef[], JSValueRef*) {
                 auto* instance = new T ();
-                std::cout << "Building object" << std::endl;
                 return JSObjectMake (localJsContext, classRef, (void*)instance);
             };
         auto constructor = CJSConstructor (context, classRef, constructorFn);
+        auto prototype = constructor.getPrototype ();
+
+        for (auto pair : prototypeMethods)
+        {
+            auto methodName = pair.first;
+            auto methodJsCallback = pair.second;
+            auto jsFunction = CJSFunction (context, methodName, methodJsCallback).getValue ();
+            prototype.setProperty (methodName, jsFunction);
+        }
+
         return constructor;
     }
 
 private:
     std::string name;
+    std::unordered_map<std::string, CJSFunction::Callback> prototypeMethods;
 };
 
 template <typename T> CJSExportBuilder<T> class_ (std::string className)

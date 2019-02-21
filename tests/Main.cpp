@@ -842,3 +842,35 @@ SCENARIO ("CJSExportBuilder::makeConstructor()")
         }
     }
 }
+
+SCENARIO ("CJSExportBuilder::method(name, impl)")
+{
+    CJSContext context;
+    JSContextRef jsContext = context.getContext ();
+
+    WHEN ("Registering a certain method on the class prototype when building")
+    {
+        class Hello
+        {
+        public:
+            Hello () = default;
+            ~Hello () = default;
+
+            int getOne ()
+            {
+                return 1;
+            }
+        };
+
+        THEN ("we'll get a valid JavaScript class that wraps our C++ class")
+        {
+            auto builder = class_<Hello> ("Hello").method ("getOne", &Hello::getOne);
+            auto constructor = builder.makeConstructor (jsContext);
+            context.getGlobalObject ().setProperty ("Hello", constructor.getConstructor ());
+            auto eitherResult = context.evaluateScript ("const hello = new Hello(); hello.getOne()");
+            REQUIRE (!eitherResult);
+            auto result = eitherResult.left ().unsafeGet ();
+            REQUIRE (result.get<double> () == 1.0);
+        }
+    }
+}
