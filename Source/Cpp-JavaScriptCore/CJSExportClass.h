@@ -1,5 +1,8 @@
 #include <string>
 
+namespace cpp_javascriptcore
+{
+
 class CJSExportBuilder
 {
 public:
@@ -8,4 +11,6 @@ public:
 
 template <typename T> CJSExportBuilder class_ (std::string className)
 {
+}
+
 }
