@@ -109,6 +109,50 @@ SCENARIO ("CJSContext")
             REQUIRE (!result);
             REQUIRE (result.left ().unsafeGet ().get<double> () == 30.0);
         }
+
+        THEN ("the function may use C++ void return [1]")
+        {
+            CJSContext context;
+
+            bool called = false;
+            auto f = [&](double x, double y) {
+                std::cout << "x: " << x << std::endl;
+                std::cout << "y: " << y << std::endl;
+                called = x == 10.0 && y == 20.0;
+                std::cout << "called: : " << called << std::endl;
+            };
+            static_assert (std::is_same<boost::callable_traits::return_type_t<typeof f>, void>{});
+            auto callback = context.registerFunction ("helloCpp", makeCallback (f));
+            auto result = context.evaluateScript ("helloCpp(10, 20)");
+            result.rightMap ([](auto error) {
+                std::cout << error << std::endl;
+                return error;
+            });
+            REQUIRE (!result);
+            std::cout << "main called: " << called << std::endl;
+            REQUIRE (called);
+        }
+
+        THEN ("the function may use C++ void return [2]")
+        {
+            CJSContext context;
+
+            bool called = false;
+            auto callback = context.registerFunction ("helloCpp", makeCallback ([&](double x, double y) {
+                                                          std::cout << "x: " << x << std::endl;
+                                                          std::cout << "y: " << y << std::endl;
+                                                          called = x == 10.0 && y == 20.0;
+                                                          std::cout << "called: : " << called << std::endl;
+                                                      }));
+            auto result = context.evaluateScript ("helloCpp(10, 20)");
+            result.rightMap ([](auto error) {
+                std::cout << error << std::endl;
+                return error;
+            });
+            REQUIRE (!result);
+            std::cout << "main called: " << called << std::endl;
+            REQUIRE (called);
+        }
     }
 }
 
