@@ -26,7 +26,7 @@ public:
     }
 };
 
-// Register what the JavaScript class should be named, and what methods to
+// Define what the JavaScript class should be named, and what methods to
 // expose on the prototype
 auto jsHello = class_<Hello> ("Hello")
                .method ("sayHello", &Hello::sayHello);
