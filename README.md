@@ -9,7 +9,47 @@ hood.
 **cpp_javascriptcore** is a C++ wrapper around JavaScriptCore's C API.
 
 ## Basic Usage
+
+### Registering classes
+#### High-level
+```cpp
+// Define a normal C++ class
+class Hello
+{
+public:
+    Hello () = default;
+    ~Hello () = default;
+
+    std::string sayHello (std::string name)
+    {
+        return "Hello there " + name + ", have a good day!";
+    }
+};
+
+// Register what the JavaScript class should be named, and what methods to expose on the prototype
+auto jsHello = class_<Hello> ("Hello").method ("sayHello", &Hello::sayHello);
+
+// Register the class on the global JavaScript scope
+context.registerClass (jsHello);
+
+// Use the class from JavaScript
+auto eitherResult = context.evaluateScript ("const hello = new Hello(); hello.sayHello('world')");
+
+// Unpack the `Either<CJSValue, std::string>` (either result / exception)
+std::string result = eitherResult.left ().unsafeGet ().get<std::string> ();
+
+// Magic :)
+assert (result == "Hello there world, have a good day!");
+```
+
 ### Registering functions
+
+#### High-level
+**TODO**
+
+`makeCallback`
+
+#### Low-level
 
 ```cpp
 CJSContext context;
