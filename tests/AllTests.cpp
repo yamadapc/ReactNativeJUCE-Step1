@@ -960,3 +960,18 @@ SCENARIO ("array[index]")
         }
     }
 }
+
+SCENARIO ("context[\"property\"]")
+{
+    CJSContext context;
+
+    WHEN ("accessing a property")
+    {
+        THEN ("accesses the global object")
+        {
+            context.evaluateScript ("a = 10");
+            REQUIRE (context["a"].isStrictEqual (CJSValue (context.getContext (), 10)));
+            REQUIRE (context["a"].get<double> () == 10.0);
+        }
+    }
+}
