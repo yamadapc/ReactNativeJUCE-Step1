@@ -2,4 +2,5 @@
 
 #include "../Cpp-JavaScriptCore/Cpp-JavaScriptCore.h"
 
-JSClassRef makeComponentClass (CJSContext& context);
+void registerConsole (CJSContext& context);
+void registerReactNativeJuce (CJSContext& context);

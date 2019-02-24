@@ -1,21 +1,25 @@
 #include "JSC-JUCE.h"
 
-JSObjectRef makeComponentClass (CJSContext& context)
+void registerConsole (CJSContext& context)
 {
-    auto jsContext = context.getContext ();
+    auto console = context.makeObject ();
 
-    JSClassDefinition definition = kJSClassDefinitionEmpty;
-    definition.className = "JUCE_Component";
-    auto classRef = JSClassCreate (&definition);
+    console["log"] =
+        [](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t numArguments, JSValueRef arguments[], JSValueRef*) {
+            for (int i = 0; i < numArguments; i++)
+            {
+                auto value = CJSValue (lcontext, arguments[i]);
+                std::cout << value.get<std::string> ();
+                if (i != numArguments - 1)
+                {
+                    std::cout << ' ';
+                }
+            }
+        };
 
-    auto jsConstructor = JSObjectMakeConstructor (jsContext, classRef, nullptr);
-    auto jsPrototype = JSObjectGetPrototype (jsContext, jsConstructor);
+    context["console"] = console;
+}
 
-    auto prototype = CJSObject (jsContext, jsPrototype);
-    auto addAndMakeVisible = CJSFunction (
-        jsContext, [](JSContextRef, JSObjectRef, JSObjectRef thisValue, size_t, const JSValueRef[], JSValueRef*) {});
-
-    prototype.setProperty ("addAndMakeVisible", addAndMakeVisible.getValue ());
-
-    return jsConstructor;
+void registerReactNativeJuce (CJSContext& context)
+{
 }

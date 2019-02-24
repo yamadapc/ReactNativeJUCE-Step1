@@ -41,10 +41,20 @@ public:
     bool isDate ();
     bool isArray ();
 
-    JSValueRef getValue ();
+    JSValueRef getValue () const;
 
     template <typename T> Either<T, std::string> safeGet ();
     template <typename T> T get ();
+
+    bool isStrictEqual (const CJSValue& rhs) const
+    {
+        return isStrictEqual (rhs.getValue ());
+    }
+
+    bool isStrictEqual (JSValueRef rhs) const
+    {
+        return JSValueIsStrictEqual (context, value, rhs);
+    }
 
 private:
     static CJSType jsTypeToCJSType (JSType type);
@@ -52,5 +62,7 @@ private:
     JSContextRef context;
     JSValueRef value;
 };
+
+bool operator== (const CJSValue& lhs, const CJSValue& rhs);
 
 } // namespace cpp_javascriptcore

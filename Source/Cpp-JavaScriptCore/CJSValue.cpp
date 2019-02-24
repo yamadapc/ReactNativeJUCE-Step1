@@ -84,7 +84,7 @@ CJSValue::CJSType CJSValue::jsTypeToCJSType (JSType type)
     return static_cast<CJSValue::CJSType> (type);
 }
 
-JSValueRef CJSValue::getValue ()
+JSValueRef CJSValue::getValue () const
 {
     return value;
 }
@@ -145,6 +145,12 @@ template <> bool CJSValue::get ()
 template <> CJSObject CJSValue::get ()
 {
     return safeGet<CJSObject> ().left ().unsafeGet ();
+}
+
+
+bool operator== (const CJSValue& lhs, const CJSValue& rhs)
+{
+    return lhs.isStrictEqual (rhs);
 }
 
 } // namespace cpp_javascriptcore

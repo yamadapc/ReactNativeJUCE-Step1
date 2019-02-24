@@ -53,11 +53,21 @@ public:
         return {context, jsValue};
     }
 
+    CJSValue operator[] (const std::string& key)
+    {
+        return getProperty (key);
+    }
+
     CJSValue getPropertyAtIndex (unsigned propertyIndex)
     {
         auto jsValue = JSObjectGetPropertyAtIndex (context, object, propertyIndex, nullptr);
         assert (jsValue != nullptr);
         return {context, jsValue};
+    }
+
+    CJSValue operator[] (unsigned index)
+    {
+        return getPropertyAtIndex (index);
     }
 
     void* getPrivate ()

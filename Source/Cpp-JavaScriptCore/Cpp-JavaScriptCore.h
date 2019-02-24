@@ -46,6 +46,12 @@ public:
         return constructor;
     }
 
+    CJSValue operator[] (const std::string& key)
+    {
+        auto global = getGlobalObject ();
+        return global[key];
+    }
+
 private:
     JSGlobalContextRef context;
 };
