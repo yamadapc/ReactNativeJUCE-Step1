@@ -6,6 +6,17 @@
   <MAINGROUP id="p2jRwC" name="ReactNativeJUCE-Step1">
     <GROUP id="{E99C3B51-D19A-D208-BB3A-5D5C316BFB12}" name="Source">
       <GROUP id="{2126F543-B72A-1054-CF39-C599876519F9}" name="Cpp-JavaScriptCore">
+        <FILE id="kO9vVx" name="CJSConstructor.cpp" compile="1" resource="0"
+              file="Source/Cpp-JavaScriptCore/CJSConstructor.cpp"/>
+        <FILE id="asG7Ee" name="CJSConstructor.h" compile="0" resource="0"
+              file="Source/Cpp-JavaScriptCore/CJSConstructor.h"/>
+        <FILE id="hhpJ9R" name="CJSExportClass.h" compile="0" resource="0"
+              file="Source/Cpp-JavaScriptCore/CJSExportClass.h"/>
+        <FILE id="mFzwXF" name="CJSObject.cpp" compile="1" resource="0" file="Source/Cpp-JavaScriptCore/CJSObject.cpp"/>
+        <FILE id="cAw0sC" name="MagicConversion.cpp" compile="1" resource="0"
+              file="Source/Cpp-JavaScriptCore/MagicConversion.cpp"/>
+        <FILE id="wcykAw" name="MagicConversion.h" compile="0" resource="0"
+              file="Source/Cpp-JavaScriptCore/MagicConversion.h"/>
         <FILE id="UGyCxL" name="CJSClass.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSClass.h"/>
         <FILE id="rdJR1m" name="CJSObject.h" compile="0" resource="0" file="Source/Cpp-JavaScriptCore/CJSObject.h"/>
         <FILE id="wDWu8k" name="CJSFunction.cpp" compile="1" resource="0" file="Source/Cpp-JavaScriptCore/CJSFunction.cpp"/>
@@ -18,6 +29,10 @@
               file="Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.cpp"/>
         <FILE id="lY9wkI" name="Cpp-JavaScriptCore.h" compile="0" resource="0"
               file="Source/Cpp-JavaScriptCore/Cpp-JavaScriptCore.h"/>
+      </GROUP>
+      <GROUP id="{DC241351-7666-2C6D-E8F0-8D4D081F9804}" name="JSC-JUCE">
+        <FILE id="qoTuHy" name="JSC-JUCE.cpp" compile="1" resource="0" file="Source/JSC-JUCE/JSC-JUCE.cpp"/>
+        <FILE id="iToXoL" name="JSC-JUCE.h" compile="0" resource="0" file="Source/JSC-JUCE/JSC-JUCE.h"/>
       </GROUP>
       <FILE id="gKSnew" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="Lc5ziF" name="MainComponent.cpp" compile="1" resource="0"

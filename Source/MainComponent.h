@@ -10,6 +10,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Cpp-JavaScriptCore/Cpp-JavaScriptCore.h"
+#include "JSC-JUCE/JSC-JUCE.h"
 
 using namespace cpp_javascriptcore;
 

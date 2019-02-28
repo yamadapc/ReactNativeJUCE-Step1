@@ -20,6 +20,10 @@ public:
     {
     }
 
+    CJSObject (JSContextRef context_) : context (context_), object (JSObjectMake (context_, nullptr, nullptr))
+    {
+    }
+
     CJSObject (JSContextRef context_, JSObjectRef object_) : context (context_), object (object_)
     {
     }

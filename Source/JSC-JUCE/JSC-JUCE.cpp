@@ -2,22 +2,28 @@
 
 void registerConsole (CJSContext& context)
 {
-    auto console = context.makeObject ();
+    auto console = CJSObject (context.getContext ());
 
-    console["log"] =
-        [](JSContextRef lcontext, JSObjectRef, JSObjectRef, size_t numArguments, JSValueRef arguments[], JSValueRef*) {
-            for (int i = 0; i < numArguments; i++)
+    CJSFunction::Callback logFn = [](JSContextRef lcontext,
+                                     JSObjectRef,
+                                     JSObjectRef,
+                                     size_t numArguments,
+                                     const JSValueRef arguments[],
+                                     JSValueRef*) {
+        for (int i = 0; i < numArguments; i++)
+        {
+            auto value = CJSValue (lcontext, arguments[i]);
+            std::cout << value.get<std::string> ();
+            if (i != numArguments - 1)
             {
-                auto value = CJSValue (lcontext, arguments[i]);
-                std::cout << value.get<std::string> ();
-                if (i != numArguments - 1)
-                {
-                    std::cout << ' ';
-                }
+                std::cout << ' ';
             }
-        };
+        }
+        return JSValueMakeNull (lcontext);
+    };
 
-    context["console"] = console;
+    console.setProperty ("log", CJSFunction (context.getContext (), "log", logFn).getValue ());
+    context.getGlobalObject ().setProperty ("console", console.getValue ());
 }
 
 void registerReactNativeJuce (CJSContext& context)

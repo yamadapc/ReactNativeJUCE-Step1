@@ -13,6 +13,8 @@ MainComponent::MainComponent ()
 {
     setSize (600, 400);
 
+    registerConsole (context);
+
     auto fn = [&](JSContextRef jsContext,
                   JSValueRef,
                   JSValueRef,
@@ -43,7 +45,7 @@ MainComponent::MainComponent ()
         "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
     context.evaluateScript (bundleFile.loadFileAsString ().toStdString ());
 
-    context.evaluateScript ("sayHello('baNaNas')");
+    context.evaluateScript ("sayHello('js'); console.log(120, 'something')");
 }
 
 MainComponent::~MainComponent ()
