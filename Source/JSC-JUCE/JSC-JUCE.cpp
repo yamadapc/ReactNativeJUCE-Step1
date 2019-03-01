@@ -29,3 +29,9 @@ void registerConsole (CJSContext& context)
 void registerReactNativeJuce (CJSContext& context)
 {
 }
+
+Either<CJSValue, std::string> evaluateFile (CJSContext& context, const std::string& fileName)
+{
+    File bundleFile = File (fileName);
+    return context.evaluateScript (bundleFile.loadFileAsString ().toStdString ());
+}
