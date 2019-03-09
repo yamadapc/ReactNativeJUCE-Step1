@@ -15,7 +15,17 @@ MainComponent::MainComponent ()
 
     registerConsole (context);
 
-    auto fn = [&](JSContextRef jsContext,
+    evaluateFile (
+            context,
+            "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
+
+    context.evaluateScript(R"(
+modules.register('Component', function register$Component() {
+  return Component;
+});
+)");
+
+/*    auto fn = [&](JSContextRef jsContext,
                   JSValueRef,
                   JSValueRef,
                   size_t numArguments,
@@ -41,11 +51,7 @@ MainComponent::MainComponent ()
     };
     auto callback = context.registerFunction ("sayHello", fn);
 
-    File bundleFile = File (
-        "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
-    context.evaluateScript (bundleFile.loadFileAsString ().toStdString ());
-
-    context.evaluateScript ("sayHello('js'); console.log(120, 'something')");
+    context.evaluateScript ("sayHello('js'); console.log(120, 'something')");*/
 }
 
 MainComponent::~MainComponent ()

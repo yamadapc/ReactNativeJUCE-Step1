@@ -86,6 +86,171 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "../../../../../../n/lib/node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn this;\n})();\n\ntry {\n\t// This works if eval is allowed (see CSP)\n\tg = g || new Function(\"return this\")();\n} catch (e) {\n\t// This works if the window reference is available\n\tif (typeof window === \"object\") g = window;\n}\n\n// g can still be undefined, but nothing to do about it...\n// We return undefined, instead of nothing here, so it's\n// easier to handle this case. if(!global) { ...}\n\nmodule.exports = g;\n\n\n//# sourceURL=webpack:///(webpack)/buildin/global.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/_Symbol.js":
+/*!***********************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/_Symbol.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var root = __webpack_require__(/*! ./_root */ \"../react-native-juce/node_modules/lodash/_root.js\");\n\n/** Built-in value references. */\nvar Symbol = root.Symbol;\n\nmodule.exports = Symbol;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/_Symbol.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/_baseGetTag.js":
+/*!***************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/_baseGetTag.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var Symbol = __webpack_require__(/*! ./_Symbol */ \"../react-native-juce/node_modules/lodash/_Symbol.js\"),\n    getRawTag = __webpack_require__(/*! ./_getRawTag */ \"../react-native-juce/node_modules/lodash/_getRawTag.js\"),\n    objectToString = __webpack_require__(/*! ./_objectToString */ \"../react-native-juce/node_modules/lodash/_objectToString.js\");\n\n/** `Object#toString` result references. */\nvar nullTag = '[object Null]',\n    undefinedTag = '[object Undefined]';\n\n/** Built-in value references. */\nvar symToStringTag = Symbol ? Symbol.toStringTag : undefined;\n\n/**\n * The base implementation of `getTag` without fallbacks for buggy environments.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the `toStringTag`.\n */\nfunction baseGetTag(value) {\n  if (value == null) {\n    return value === undefined ? undefinedTag : nullTag;\n  }\n  return (symToStringTag && symToStringTag in Object(value))\n    ? getRawTag(value)\n    : objectToString(value);\n}\n\nmodule.exports = baseGetTag;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/_baseGetTag.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/_freeGlobal.js":
+/*!***************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/_freeGlobal.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */\nvar freeGlobal = typeof global == 'object' && global && global.Object === Object && global;\n\nmodule.exports = freeGlobal;\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../n/lib/node_modules/webpack/buildin/global.js */ \"../../../../../../n/lib/node_modules/webpack/buildin/global.js\")))\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/_freeGlobal.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/_getRawTag.js":
+/*!**************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/_getRawTag.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var Symbol = __webpack_require__(/*! ./_Symbol */ \"../react-native-juce/node_modules/lodash/_Symbol.js\");\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/**\n * Used to resolve the\n * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)\n * of values.\n */\nvar nativeObjectToString = objectProto.toString;\n\n/** Built-in value references. */\nvar symToStringTag = Symbol ? Symbol.toStringTag : undefined;\n\n/**\n * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the raw `toStringTag`.\n */\nfunction getRawTag(value) {\n  var isOwn = hasOwnProperty.call(value, symToStringTag),\n      tag = value[symToStringTag];\n\n  try {\n    value[symToStringTag] = undefined;\n    var unmasked = true;\n  } catch (e) {}\n\n  var result = nativeObjectToString.call(value);\n  if (unmasked) {\n    if (isOwn) {\n      value[symToStringTag] = tag;\n    } else {\n      delete value[symToStringTag];\n    }\n  }\n  return result;\n}\n\nmodule.exports = getRawTag;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/_getRawTag.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/_objectToString.js":
+/*!*******************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/_objectToString.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/**\n * Used to resolve the\n * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)\n * of values.\n */\nvar nativeObjectToString = objectProto.toString;\n\n/**\n * Converts `value` to a string using `Object.prototype.toString`.\n *\n * @private\n * @param {*} value The value to convert.\n * @returns {string} Returns the converted string.\n */\nfunction objectToString(value) {\n  return nativeObjectToString.call(value);\n}\n\nmodule.exports = objectToString;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/_objectToString.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/_root.js":
+/*!*********************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/_root.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var freeGlobal = __webpack_require__(/*! ./_freeGlobal */ \"../react-native-juce/node_modules/lodash/_freeGlobal.js\");\n\n/** Detect free variable `self`. */\nvar freeSelf = typeof self == 'object' && self && self.Object === Object && self;\n\n/** Used as a reference to the global object. */\nvar root = freeGlobal || freeSelf || Function('return this')();\n\nmodule.exports = root;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/_root.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/before.js":
+/*!**********************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/before.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toInteger = __webpack_require__(/*! ./toInteger */ \"../react-native-juce/node_modules/lodash/toInteger.js\");\n\n/** Error message constants. */\nvar FUNC_ERROR_TEXT = 'Expected a function';\n\n/**\n * Creates a function that invokes `func`, with the `this` binding and arguments\n * of the created function, while it's called less than `n` times. Subsequent\n * calls to the created function return the result of the last `func` invocation.\n *\n * @static\n * @memberOf _\n * @since 3.0.0\n * @category Function\n * @param {number} n The number of calls at which `func` is no longer invoked.\n * @param {Function} func The function to restrict.\n * @returns {Function} Returns the new restricted function.\n * @example\n *\n * jQuery(element).on('click', _.before(5, addContactToList));\n * // => Allows adding up to 4 contacts to the list.\n */\nfunction before(n, func) {\n  var result;\n  if (typeof func != 'function') {\n    throw new TypeError(FUNC_ERROR_TEXT);\n  }\n  n = toInteger(n);\n  return function() {\n    if (--n > 0) {\n      result = func.apply(this, arguments);\n    }\n    if (n <= 1) {\n      func = undefined;\n    }\n    return result;\n  };\n}\n\nmodule.exports = before;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/before.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/isObject.js":
+/*!************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/isObject.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/**\n * Checks if `value` is the\n * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)\n * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is an object, else `false`.\n * @example\n *\n * _.isObject({});\n * // => true\n *\n * _.isObject([1, 2, 3]);\n * // => true\n *\n * _.isObject(_.noop);\n * // => true\n *\n * _.isObject(null);\n * // => false\n */\nfunction isObject(value) {\n  var type = typeof value;\n  return value != null && (type == 'object' || type == 'function');\n}\n\nmodule.exports = isObject;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/isObject.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/isObjectLike.js":
+/*!****************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/isObjectLike.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/**\n * Checks if `value` is object-like. A value is object-like if it's not `null`\n * and has a `typeof` result of \"object\".\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is object-like, else `false`.\n * @example\n *\n * _.isObjectLike({});\n * // => true\n *\n * _.isObjectLike([1, 2, 3]);\n * // => true\n *\n * _.isObjectLike(_.noop);\n * // => false\n *\n * _.isObjectLike(null);\n * // => false\n */\nfunction isObjectLike(value) {\n  return value != null && typeof value == 'object';\n}\n\nmodule.exports = isObjectLike;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/isObjectLike.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/isSymbol.js":
+/*!************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/isSymbol.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var baseGetTag = __webpack_require__(/*! ./_baseGetTag */ \"../react-native-juce/node_modules/lodash/_baseGetTag.js\"),\n    isObjectLike = __webpack_require__(/*! ./isObjectLike */ \"../react-native-juce/node_modules/lodash/isObjectLike.js\");\n\n/** `Object#toString` result references. */\nvar symbolTag = '[object Symbol]';\n\n/**\n * Checks if `value` is classified as a `Symbol` primitive or object.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.\n * @example\n *\n * _.isSymbol(Symbol.iterator);\n * // => true\n *\n * _.isSymbol('abc');\n * // => false\n */\nfunction isSymbol(value) {\n  return typeof value == 'symbol' ||\n    (isObjectLike(value) && baseGetTag(value) == symbolTag);\n}\n\nmodule.exports = isSymbol;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/isSymbol.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/once.js":
+/*!********************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/once.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var before = __webpack_require__(/*! ./before */ \"../react-native-juce/node_modules/lodash/before.js\");\n\n/**\n * Creates a function that is restricted to invoking `func` once. Repeat calls\n * to the function return the value of the first invocation. The `func` is\n * invoked with the `this` binding and arguments of the created function.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Function\n * @param {Function} func The function to restrict.\n * @returns {Function} Returns the new restricted function.\n * @example\n *\n * var initialize = _.once(createApplication);\n * initialize();\n * initialize();\n * // => `createApplication` is invoked once\n */\nfunction once(func) {\n  return before(2, func);\n}\n\nmodule.exports = once;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/once.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/toFinite.js":
+/*!************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/toFinite.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toNumber = __webpack_require__(/*! ./toNumber */ \"../react-native-juce/node_modules/lodash/toNumber.js\");\n\n/** Used as references for various `Number` constants. */\nvar INFINITY = 1 / 0,\n    MAX_INTEGER = 1.7976931348623157e+308;\n\n/**\n * Converts `value` to a finite number.\n *\n * @static\n * @memberOf _\n * @since 4.12.0\n * @category Lang\n * @param {*} value The value to convert.\n * @returns {number} Returns the converted number.\n * @example\n *\n * _.toFinite(3.2);\n * // => 3.2\n *\n * _.toFinite(Number.MIN_VALUE);\n * // => 5e-324\n *\n * _.toFinite(Infinity);\n * // => 1.7976931348623157e+308\n *\n * _.toFinite('3.2');\n * // => 3.2\n */\nfunction toFinite(value) {\n  if (!value) {\n    return value === 0 ? value : 0;\n  }\n  value = toNumber(value);\n  if (value === INFINITY || value === -INFINITY) {\n    var sign = (value < 0 ? -1 : 1);\n    return sign * MAX_INTEGER;\n  }\n  return value === value ? value : 0;\n}\n\nmodule.exports = toFinite;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/toFinite.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/toInteger.js":
+/*!*************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/toInteger.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toFinite = __webpack_require__(/*! ./toFinite */ \"../react-native-juce/node_modules/lodash/toFinite.js\");\n\n/**\n * Converts `value` to an integer.\n *\n * **Note:** This method is loosely based on\n * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to convert.\n * @returns {number} Returns the converted integer.\n * @example\n *\n * _.toInteger(3.2);\n * // => 3\n *\n * _.toInteger(Number.MIN_VALUE);\n * // => 0\n *\n * _.toInteger(Infinity);\n * // => 1.7976931348623157e+308\n *\n * _.toInteger('3.2');\n * // => 3\n */\nfunction toInteger(value) {\n  var result = toFinite(value),\n      remainder = result % 1;\n\n  return result === result ? (remainder ? result - remainder : result) : 0;\n}\n\nmodule.exports = toInteger;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/toInteger.js?");
+
+/***/ }),
+
+/***/ "../react-native-juce/node_modules/lodash/toNumber.js":
+/*!************************************************************!*\
+  !*** ../react-native-juce/node_modules/lodash/toNumber.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var isObject = __webpack_require__(/*! ./isObject */ \"../react-native-juce/node_modules/lodash/isObject.js\"),\n    isSymbol = __webpack_require__(/*! ./isSymbol */ \"../react-native-juce/node_modules/lodash/isSymbol.js\");\n\n/** Used as references for various `Number` constants. */\nvar NAN = 0 / 0;\n\n/** Used to match leading and trailing whitespace. */\nvar reTrim = /^\\s+|\\s+$/g;\n\n/** Used to detect bad signed hexadecimal string values. */\nvar reIsBadHex = /^[-+]0x[0-9a-f]+$/i;\n\n/** Used to detect binary string values. */\nvar reIsBinary = /^0b[01]+$/i;\n\n/** Used to detect octal string values. */\nvar reIsOctal = /^0o[0-7]+$/i;\n\n/** Built-in method references without a dependency on `root`. */\nvar freeParseInt = parseInt;\n\n/**\n * Converts `value` to a number.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to process.\n * @returns {number} Returns the number.\n * @example\n *\n * _.toNumber(3.2);\n * // => 3.2\n *\n * _.toNumber(Number.MIN_VALUE);\n * // => 5e-324\n *\n * _.toNumber(Infinity);\n * // => Infinity\n *\n * _.toNumber('3.2');\n * // => 3.2\n */\nfunction toNumber(value) {\n  if (typeof value == 'number') {\n    return value;\n  }\n  if (isSymbol(value)) {\n    return NAN;\n  }\n  if (isObject(value)) {\n    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;\n    value = isObject(other) ? (other + '') : other;\n  }\n  if (typeof value != 'string') {\n    return value === 0 ? value : +value;\n  }\n  value = value.replace(reTrim, '');\n  var isBinary = reIsBinary.test(value);\n  return (isBinary || reIsOctal.test(value))\n    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)\n    : (reIsBadHex.test(value) ? NAN : +value);\n}\n\nmodule.exports = toNumber;\n\n\n//# sourceURL=webpack:///../react-native-juce/node_modules/lodash/toNumber.js?");
+
+/***/ }),
+
 /***/ "../react-native-juce/node_modules/object-assign/index.js":
 /*!****************************************************************!*\
   !*** ../react-native-juce/node_modules/object-assign/index.js ***!
@@ -150,11 +315,11 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /*!*****************************************!*\
   !*** ../react-native-juce/src/index.js ***!
   \*****************************************/
-/*! exports provided: View, ComponentRegistry */
+/*! exports provided: View, Text, modules */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"View\", function() { return View; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ComponentRegistry\", function() { return ComponentRegistry; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"../react-native-juce/node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction View() {\n  return this.props.children;\n}\nconst ComponentRegistry = {\n  components: {},\n  register: (name, Klass) => {\n    ComponentRegistry.components[name] = Klass;\n  }\n};\n\n//# sourceURL=webpack:///../react-native-juce/src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"View\", function() { return View; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Text\", function() { return Text; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"modules\", function() { return modules; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"../react-native-juce/node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var lodash_once__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/once */ \"../react-native-juce/node_modules/lodash/once.js\");\n/* harmony import */ var lodash_once__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_once__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction View(props) {\n  return props.children;\n}\nfunction Text(props) {\n  return props.children;\n}\n\nclass NativeModuleRegistry {\n  constructor() {\n    this.modules = {};\n  }\n\n  register(name, fn) {\n    this.modules[name] = lodash_once__WEBPACK_IMPORTED_MODULE_1___default()(fn);\n  }\n\n  require(name) {\n    return this.modules[name]();\n  }\n\n}\n\nglobal.modules = new NativeModuleRegistry();\nconst modules = global.modules;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../n/lib/node_modules/webpack/buildin/global.js */ \"../../../../../../n/lib/node_modules/webpack/buildin/global.js\")))\n\n//# sourceURL=webpack:///../react-native-juce/src/index.js?");
 
 /***/ }),
 
@@ -226,7 +391,7 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_native_juce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-native-juce */ \"../react-native-juce/src/index.js\");\n\n\n\nclass HelloWorld extends react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"] {\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_native_juce__WEBPACK_IMPORTED_MODULE_1__[\"View\"], null, \"Hello World\");\n  }\n\n}\n\nreact_native_juce__WEBPACK_IMPORTED_MODULE_1__[\"ComponentRegistry\"].register('HelloWorld', HelloWorld);\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_native_juce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-native-juce */ \"../react-native-juce/src/index.js\");\n\n\n\nclass HelloWorld extends react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"] {\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_native_juce__WEBPACK_IMPORTED_MODULE_1__[\"View\"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_native_juce__WEBPACK_IMPORTED_MODULE_1__[\"Text\"], null, \"Hello World\"));\n  }\n\n}\n\nreact_native_juce__WEBPACK_IMPORTED_MODULE_1__[\"ComponentRegistry\"].register('HelloWorld', HelloWorld);\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
