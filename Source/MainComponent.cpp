@@ -15,9 +15,14 @@ MainComponent::MainComponent ()
 
     registerConsole (context);
 
-    evaluateFile (
+    auto eitherResult = evaluateFile (
             context,
             "/Users/yamadapc/Programming/github.com/beijaflor-io/ReactNativeJUCE-Step1/JavaScript/example/dist/main.js");
+    eitherResult.rightMap ([](auto error) {
+        std::cout << error << std::endl;
+        return error;
+    });
+    assert(!eitherResult);
 
     context.evaluateScript(R"(
 modules.register('Component', function register$Component() {

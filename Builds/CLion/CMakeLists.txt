@@ -106,8 +106,9 @@ add_executable (APP
     "../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_IIRFilter.h"
     "../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_LagrangeInterpolator.cpp"
     "../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_LagrangeInterpolator.h"
-    "../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_LinearSmoothedValue.h"
     "../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_Reverb.h"
+    "../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_SmoothedValue.cpp"
+    "../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_SmoothedValue.h"
     "../../../../../../Documents/JUCE/modules/juce_audio_basics/juce_audio_basics.cpp"
     "../../../../../../Documents/JUCE/modules/juce_audio_basics/juce_audio_basics.mm"
     "../../../../../../Documents/JUCE/modules/juce_audio_basics/juce_audio_basics.h"
@@ -1329,6 +1330,9 @@ add_executable (APP
     "../../JuceLibraryCode/include_juce_opengl.mm"
     "../../JuceLibraryCode/JuceHeader.h"
 )
+target_include_directories(APP SYSTEM PRIVATE "../../external")
+target_include_directories(APP SYSTEM PRIVATE "/usr/local/include")
+
 
 set_source_files_properties ("../../Source/Cpp-JavaScriptCore/CJSConstructor.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Cpp-JavaScriptCore/CJSExportClass.h" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -1410,8 +1414,9 @@ set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audi
 set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_IIRFilter.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_LagrangeInterpolator.cpp" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_LagrangeInterpolator.h" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_LinearSmoothedValue.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_Reverb.h" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_SmoothedValue.cpp" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/utilities/juce_SmoothedValue.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/juce_audio_basics.cpp" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/juce_audio_basics.mm" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../../../../../Documents/JUCE/modules/juce_audio_basics/juce_audio_basics.h" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -2633,8 +2638,6 @@ target_include_directories (APP PRIVATE
     "../../JuceLibraryCode"
     "/Users/yamadapc/Documents/JUCE/modules"
 )
-target_include_directories(APP SYSTEM PRIVATE "../../external")
-target_include_directories(APP SYSTEM PRIVATE "/usr/local/include")
 
 target_compile_definitions (APP PRIVATE
     "_DEBUG=1"
@@ -2711,9 +2714,6 @@ target_include_directories (APP PRIVATE
     "../../JuceLibraryCode"
     "/Users/yamadapc/Documents/JUCE/modules"
 )
-target_include_directories(APP SYSTEM PRIVATE "../../external")
-target_include_directories(APP SYSTEM PRIVATE "/usr/local/include")
-
 
 target_compile_definitions (APP PRIVATE
     "_NDEBUG=1"

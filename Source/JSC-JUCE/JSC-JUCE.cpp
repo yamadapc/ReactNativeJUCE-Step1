@@ -22,7 +22,26 @@ void registerConsole (CJSContext& context)
         return JSValueMakeNull (lcontext);
     };
 
+    CJSFunction::Callback logFnErr = [](JSContextRef lcontext,
+                                        JSObjectRef,
+                                        JSObjectRef,
+                                        size_t numArguments,
+                                        const JSValueRef arguments[],
+                                        JSValueRef*) {
+        for (int i = 0; i < numArguments; i++)
+        {
+            auto value = CJSValue (lcontext, arguments[i]);
+            std::cerr << value.get<std::string> ();
+            if (i != numArguments - 1)
+            {
+                std::cerr << ' ';
+            }
+        }
+        return JSValueMakeNull (lcontext);
+    };
+
     console.setProperty ("log", CJSFunction (context.getContext (), "log", logFn).getValue ());
+    console.setProperty ("error", CJSFunction (context.getContext (), "error", logFnErr).getValue ());
     context.getGlobalObject ().setProperty ("console", console.getValue ());
 }
 

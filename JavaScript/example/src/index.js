@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ComponentRegistry, View, Text} from 'react-native-juce';
+import {render, ComponentRegistry, View, Text} from 'react-native-juce';
 
 class HelloWorld extends Component {
   render() {
@@ -13,4 +13,4 @@ class HelloWorld extends Component {
   }
 }
 
-ComponentRegistry.register('HelloWorld', HelloWorld);
+render(<HelloWorld />);

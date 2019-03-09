@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="A7AHfl" name="ReactNativeJUCE-Step1" projectType="guiapp"
-              jucerVersion="5.4.2" cppLanguageStandard="17" reportAppUsage="0"
+              jucerVersion="5.4.3" cppLanguageStandard="17" reportAppUsage="0"
               displaySplashScreen="0">
   <MAINGROUP id="p2jRwC" name="ReactNativeJUCE-Step1">
     <GROUP id="{E99C3B51-D19A-D208-BB3A-5D5C316BFB12}" name="Source">
